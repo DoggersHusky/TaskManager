@@ -1,0 +1,8 @@
+---
+Name: taskmanager
+After: 'framework/*, cms/*'
+---
+
+SilverStripe\CMS\Controllers\ContentController:
+    extensions:
+    - BucklesHusky\TaskManager\Extension\TaskManagerPageExtension

@@ -1,0 +1,32 @@
+{
+    "name": "buckleshusky/taskmanager",
+    "description": "",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "buckleshusky",
+        "taskmanager"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Buckles Husky",
+            "homepage": "http://doggershusky.com"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "^4.0"
+    },
+    "extra": {
+        "installer-name": "taskmanager",
+        "expose": [
+            "css",
+            "images",
+            "javascript"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+          "BucklesHusky\\TaskManager\\": "src/"
+        }
+    }
+}
