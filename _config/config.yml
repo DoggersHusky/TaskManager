@@ -5,4 +5,8 @@ After: 'framework/*, cms/*'
 
 SilverStripe\CMS\Controllers\ContentController:
     extensions:
-    - BucklesHusky\TaskManager\Extension\TaskManagerPageExtension
+        - BucklesHusky\TaskManager\Extension\TaskManagerExtension
+    
+Page:
+    extensions:
+        - BucklesHusky\TaskManager\Extension\TaskManagerPageExtension
