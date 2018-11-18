@@ -33,6 +33,21 @@
     border-width: 1px;
     border-style: solid;
     padding: 5px 10px 15px 10px;
+}
+
+.all-task {
+    position: relative;
+    top: 0px;
+    display: none;
+    width: 300px;
+    height: 500px;
+    float: left;
+    box-sizing: border-box;
+    background-color: white;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px 10px 15px 10px;
     overflow-y: scroll;
 }
 

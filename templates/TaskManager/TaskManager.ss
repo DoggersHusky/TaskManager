@@ -12,21 +12,28 @@
         $TaskManagerForm
 
     </div>
+    <div class="all-task">
+        
+    </div>
     <div class="tasks">
         <% with $TaskManager %>
-            <% loop $PageTasks.Sort(ID DESC) %>
-                <div class="task">
-                    <div class="complete"><a href="{$Top.Link}CompleteTask/$ID"></a></div>
-                    <div class="task-info">
-                        <div><strong>$Title</strong></div>
-                        <div class="date">$Created.Nice</div>
-                        <div class="desc">$Description</div>
-                        <% if $Element %>
-                            <div class="ele"><span data-target="$Element">Show Element</span></div>
-                        <% end_if %>
+            <% if $PageTasks %>
+                <% loop $PageTasks.Sort(ID DESC) %>
+                    <div class="task">
+                        <div class="complete"><a href="{$Top.Link}CompleteTask/$ID"></a></div>
+                        <div class="task-info">
+                            <div><strong>$Title</strong></div>
+                            <div class="date">$Created.Nice</div>
+                            <div class="desc">$Description</div>
+                            <% if $Element %>
+                                <div class="ele"><span data-target="$Element">Show Element</span></div>
+                            <% end_if %>
+                        </div>
                     </div>
-                </div>
-            <% end_loop %>
+                <% end_loop %>
+            <% else %>
+                There are no Task for this page.
+            <% end_if %>
         <% end_with %>
     </div>
     
