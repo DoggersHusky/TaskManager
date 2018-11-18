@@ -16,7 +16,7 @@
         <% with $TaskManager %>
             <% loop $PageTasks.Sort(ID DESC) %>
                 <div class="task">
-                    <div class="complete">$Complete.Nice</div>
+                    <div class="complete"><a href="{$Top.Link}CompleteTask/$ID"></a></div>
                     <div class="task-info">
                         <div><strong>$Title</strong></div>
                         <div class="date">$Created.Nice</div>

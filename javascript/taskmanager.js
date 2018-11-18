@@ -53,6 +53,7 @@
                 //allow the page to be clicked
                 $(this).click(function() {
                     
+                    //does the element have a class? if not default to id
                     if ($(this).attr('class')) {
                         $('.display-element').html($(this).prop('nodeName').toLowerCase()+'.' +$(this).first().attr('class').split(' ').join('.'));
                         $('#Form_TaskManagerForm_Element').val($(this).prop('nodeName').toLowerCase()+'.' +$(this).first().attr('class').split(' ').join('.'));
@@ -87,12 +88,22 @@
             
             setTimeout(function() {
                 $(target).css('background-color','');
-            }, 1000);
+            }, 500);
             
         });
 
-    })
+
+        /*
+         * allows completion of a task
+         */
+        $('.tasks-container .complete a').click(function() {
+            
+            //show the green checkmark
+            $(this).css('background-position-x','-120px');
+            
+        });
 
 
 
+    });
  })(jQuery); 

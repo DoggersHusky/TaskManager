@@ -87,10 +87,11 @@ form textarea{
     padding-left: 10px;
 }
 
-.tasks-container .tasks .desc,
-.tasks-container .tasks .complete{
+.tasks-container .tasks .desc{
     padding-left: 10px;
 }
+
+
 
 .tasks-container .element-selector {
     display: block;
@@ -119,8 +120,24 @@ form textarea{
 
 .tasks-container .complete {
     width: 25%;
+    padding-right: 10px;
 }
 
 .tasks-container .task-info {
     width: 75%;
+}
+
+.tasks-container .complete a {
+    background-image: url(../images/checkbox.png);
+    background-position-x: 0px;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-position-x: 0px;
+}
+
+.tasks-container .complete a:hover {
+    background-position-x: -60px;
 }

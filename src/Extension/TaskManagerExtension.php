@@ -15,7 +15,8 @@ use SilverStripe\Forms\HiddenField;
 class TaskManagerExtension extends DataExtension {
     
     private static $allowed_actions = [
-        'TaskManagerForm'
+        'TaskManagerForm',
+        'CompleteTask'
     ];
     
     /*
@@ -73,6 +74,15 @@ class TaskManagerExtension extends DataExtension {
         }
         $new->PageID = $this->owner->ID;
         $new->write();
+        
+        return $this->owner->redirectBack();
+    }
+    
+    public function CompleteTask() {
+        
+        $item = Task::get()->byID($this->owner->request->param('ID'));
+        $item->Complete = 1;
+        $item->write();
         
         return $this->owner->redirectBack();
         
