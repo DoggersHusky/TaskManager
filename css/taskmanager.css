@@ -92,10 +92,6 @@ form textarea{
     padding-left: 10px;
 }
 
-.select {
-    background-color: yellow;
-}
-
 .tasks-container .element-selector {
     display: block;
 }
