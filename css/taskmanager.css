@@ -25,13 +25,15 @@
     top: 0px;
     display: none;
     width: 300px;
-    height: 300px;
+    height: 400px;
     float: left;
     box-sizing: border-box;
     background-color: white;
     border-color: black;
     border-width: 1px;
     border-style: solid;
+    padding: 5px 10px 15px 10px;
+    overflow-y: scroll;
 }
 
 .tasks-toggle {
@@ -42,7 +44,8 @@
     left: -50px;
     cursor: pointer;
     background-image: url(../images/button.png);
-    background-position: 0px;
+    background-position-x: 0px;
+    top: 100px;
 }
 
 .new-task-toggle {
@@ -51,15 +54,82 @@
     height: 100px;
     position: absolute;
     left: -50px;
-    top: 100px;
     cursor: pointer;
     background-image: url(../images/button.png);
-    background-position: 0px;
+    background-position-x: 0px;
+    background-position-y: 100px;
 }
 
 .task {
-    padding: 5px 5px 15px 10px;
+    padding: 5px 10px 15px 10px;
     border-bottom-color: black;
     border-bottom-width: 1px;
     border-bottom-style: solid;
+    display: flex;
+}
+
+form {
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form  input,
+form textarea{
+    box-sizing: border-box;
+}
+
+.tasks-container .task .date {
+    font-size: 75%;
+}
+
+.tasks-container .tasks .desc{
+    padding-left: 10px;
+}
+
+.tasks-container .tasks .desc,
+.tasks-container .tasks .complete{
+    padding-left: 10px;
+}
+
+.select {
+    background-color: yellow;
+}
+
+.tasks-container .element-selector {
+    display: block;
+}
+
+.tasks-container .btn-toolbar {
+    overflow: hidden;
+}
+
+.tasks-container .element-selector span{
+    background-color: #00d2ff;
+    color: white;
+    display: block;
+    text-align: center;
+    line-height: 34px;
+    font-size: 123%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tasks-container .ele span {
+    background-color: #00d2ff;
+    color: white;
+    display: block;
+    text-align: center;
+    line-height: 34px;
+    font-size: 123%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tasks-container .complete {
+    width: 25%;
+}
+
+.tasks-container .task-info {
+    width: 75%;
 }

@@ -9,8 +9,9 @@ class Task extends DataObject {
     
     private static $db = [
         'Title' => 'Text',
-        'Description' => 'HTMLText',
-        'Complete' => 'Boolean'
+        'Description' => 'Text',
+        'Complete' => 'Boolean',
+        'Element' => 'Text'
     ];
     
     private static $has_one = [
