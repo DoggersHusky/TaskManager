@@ -21,7 +21,9 @@
                         <div><strong>$Title</strong></div>
                         <div class="date">$Created.Nice</div>
                         <div class="desc">$Description</div>
-                        <div class="ele"><span data-target="$Element">Show Element</span></div>
+                        <% if $Element %>
+                            <div class="ele"><span data-target="$Element">Show Element</span></div>
+                        <% end_if %>
                     </div>
                 </div>
             <% end_loop %>

@@ -104,7 +104,8 @@ form textarea{
     overflow: hidden;
 }
 
-.tasks-container .element-selector span{
+.tasks-container .element-selector span,
+.tasks-container .ele span{
     background-color: #00d2ff;
     color: white;
     display: block;
@@ -115,15 +116,9 @@ form textarea{
     cursor: pointer;
 }
 
-.tasks-container .ele span {
-    background-color: #00d2ff;
-    color: white;
-    display: block;
-    text-align: center;
-    line-height: 34px;
-    font-size: 123%;
-    font-weight: bold;
-    cursor: pointer;
+.tasks-container .ele span:hover,
+.tasks-container .element-selector span:hover{
+    background-color: #0090ff;
 }
 
 .tasks-container .complete {

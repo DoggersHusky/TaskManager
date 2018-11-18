@@ -68,7 +68,9 @@ class TaskManagerExtension extends DataExtension {
         $new = Task::create();
         $new->Title = $data['Title'];
         $new->Description = $data['Description'];
-        $new->Element = $data['Element'];
+        if ($data['Element']) {
+            $new->Element = $data['Element'];
+        }
         $new->PageID = $this->owner->ID;
         $new->write();
         

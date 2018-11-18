@@ -87,7 +87,7 @@
             
             setTimeout(function() {
                 $(target).css('background-color','');
-            }, 2000);
+            }, 1000);
             
         });
 
