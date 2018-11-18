@@ -75,7 +75,21 @@
             });
         });
         
-        
+        /*
+         * show element for issue
+         */
+        $('.ele span').click(function() {
+            
+            //get target
+            var target = $(this).attr('data-target');
+            //change background color
+            $(target).css('background-color','yellow');
+            
+            setTimeout(function() {
+                $(target).css('background-color','');
+            }, 2000);
+            
+        });
 
     })
 
