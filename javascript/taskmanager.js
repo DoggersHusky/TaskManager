@@ -47,8 +47,8 @@
             });
             
             //handle hovering in and out of elements
-            $('*:not(.tasks-container *)').hover(function() {
-                $(this).addClass('select')
+            $('*:not(.tasks-container *):not(body):not(html)').hover(function() {
+                $(this).css('background-color','yellow')
                 
                 //allow the page to be clicked
                 $(this).click(function() {
@@ -65,13 +65,13 @@
                     //remove hover effect
                     $('*:not(.tasks-container *)').unbind('mouseenter').unbind('mouseleave')
                     //remove color
-                    $('*:not(.tasks-container *)').removeClass('select')
+                    $('*:not(.tasks-container *)').css('background-color','')
                     
                     $('a').unbind("click");
                 });
                 
             },function() {
-                $(this).removeClass('select')
+                $(this).css('background-color','')
             });
         });
         
