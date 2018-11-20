@@ -4,6 +4,7 @@
     position: fixed;
     top: 100px;
     right: 0px;
+    z-index: 9999999;
 }
 
 .tasks {
