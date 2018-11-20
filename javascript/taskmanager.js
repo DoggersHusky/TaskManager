@@ -11,7 +11,7 @@
                     $('.tasks-toggle').css('background-position-x','0px');
                     $(this).removeClass('open');
                 }else{
-                    $('.tasks-toggle').css('background-position-x','50px');
+                    $('.tasks-toggle').css('background-position-x','-50px');
                     $(this).addClass('open');
                 }
             });
@@ -28,7 +28,7 @@
                     $('.new-task-toggle').css('background-position-x','0px');
                     $(this).removeClass('open');
                 }else{
-                    $('.new-task-toggle').css('background-position-x','50px');
+                    $('.new-task-toggle').css('background-position-x','-50px');
                     $(this).addClass('open');
                 }
             });

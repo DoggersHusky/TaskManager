@@ -63,6 +63,13 @@
     top: 100px;
 }
 
+.tasks-toggle:hover,
+.new-task-toggle:hover,
+.tasks-container .ele span:hover,
+.tasks-container .element-selector span:hover{
+    filter: brightness(110%);
+}
+
 .new-task-toggle {
     display: block;
     width: 50px;
@@ -72,7 +79,7 @@
     cursor: pointer;
     background-image: url(../images/button.png);
     background-position-x: 0px;
-    background-position-y: 100px;
+    background-position-y: -100px;
 }
 
 .task {
@@ -126,11 +133,6 @@ form textarea{
     font-size: 123%;
     font-weight: bold;
     cursor: pointer;
-}
-
-.tasks-container .ele span:hover,
-.tasks-container .element-selector span:hover{
-    background-color: #0090ff;
 }
 
 .tasks-container .complete {
