@@ -17,12 +17,12 @@ $('.element-selector').click(function() {
 
            //does the element have a class? if not default to id
            if ($(this).attr('class')) {
-               $('.display-element').html($(this).prop('nodeName').toLowerCase()+'.' +$(this).first().attr('class').split(' ').join('.'));
-               $('#Form_TaskManagerForm_Element').val($(this).prop('nodeName').toLowerCase()+'.' +$(this).first().attr('class').split(' ').join('.'));
+               $('.display-element').html($(this).prop('nodeName').toLowerCase()+'.' +$(this).last().attr('class').split(' ').join('.'));
+               $('#Form_TaskManagerForm_Element').val($(this).prop('nodeName').toLowerCase()+'.' +$(this).last().attr('class').split(' ').join('.'));
 
            }else{
-               $('.display-element').html($(this).prop('nodeName').toLowerCase()+'#' +$(this).first().attr('id'));
-               $('#Form_TaskManagerForm_Element').val($(this).prop('nodeName').toLowerCase()+'#' +$(this).first().attr('id'));
+               $('.display-element').html($(this).prop('nodeName').toLowerCase()+'#' +$(this).last().attr('id'));
+               $('#Form_TaskManagerForm_Element').val($(this).prop('nodeName').toLowerCase()+'#' +$(this).last().attr('id'));
            }
 
            //remove hover effect
