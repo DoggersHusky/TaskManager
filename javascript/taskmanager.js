@@ -35,6 +35,22 @@
             
         });
         
+        $('.all-tasks-toggle').click(function() {
+
+            //toggle the task list
+            $('.all-task').toggle('slow',function() {
+                //check to see if this is open or closed
+                if ($(this).hasClass('open')) {
+                    $('.all-tasks-toggle').css('background-position-x','0px');
+                    $(this).removeClass('open');
+                }else{
+                    $('.all-tasks-toggle').css('background-position-x','-50px');
+                    $(this).addClass('open');
+                }
+            });
+            
+        });
+        
         
         /*
          * Allow divs to be selected and used to report problems

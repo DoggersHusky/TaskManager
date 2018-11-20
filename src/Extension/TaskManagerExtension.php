@@ -34,6 +34,9 @@ class TaskManagerExtension extends DataExtension {
         $data = array(
             'PageTasks' => $this->owner->Tasks()->filter(array(
                 'Complete'=>'0'
+            )),
+            'AllTasks' => Task::get()->filter(array(
+                'Complete'=>'0'
             ))
         );
         
