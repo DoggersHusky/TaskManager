@@ -11,6 +11,7 @@ use SilverStripe\Forms\FormAction;
 use BucklesHusky\TaskManager\Model\Task;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\HiddenField;
+use SilverStripe\Security\Permission;
 
 class TaskManagerExtension extends DataExtension {
     
@@ -23,6 +24,11 @@ class TaskManagerExtension extends DataExtension {
      * makes the taskmanager
      */
     public function TaskManager() {
+        
+        //make sure the user is logged in as admin
+        if (!Permission::check('ADMIN')) {
+            return false;
+        }
         
         //the data for the taskmanager
         $data = array(
