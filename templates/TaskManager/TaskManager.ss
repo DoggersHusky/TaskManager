@@ -1,3 +1,4 @@
+<% require javascript("buckleshusky/taskmanager: javascript/jquery-3.3.1.min.js") %>
 <% require javascript("buckleshusky/taskmanager: javascript/taskmanager.js") %>
 <% require css("buckleshusky/taskmanager: css/taskmanager.css") %>
 <div class="tasks-container">
