@@ -4,7 +4,9 @@
     "type": "silverstripe-vendormodule",
     "keywords": [
         "buckleshusky",
-        "taskmanager"
+        "taskmanager",
+        "SilverStripe",
+        "silverstripe"
     ],
     "license": "BSD-3-Clause",
     "authors": [
