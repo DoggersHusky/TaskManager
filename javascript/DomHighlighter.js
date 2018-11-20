@@ -8,6 +8,7 @@ $('.element-selector').click(function() {
        e.preventDefault();
    });
 
+
    $('body div:last-child:not(.tasks-container *)').each(function() {
        
         $(this).hover(function() {

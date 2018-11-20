@@ -1,5 +1,5 @@
 <% require javascript("buckleshusky/taskmanager: javascript/jquery-3.3.1.min.js") %>
-<% require javascript("buckleshusky/taskmanager: javascript/DomHighlighter.js") %>
+<% require javascript("buckleshusky/taskmanager: javascript/jquery.dom-outline-1.0.js") %>
 <% require javascript("buckleshusky/taskmanager: javascript/taskmanager.js") %>
 <% require css("buckleshusky/taskmanager: css/taskmanager.css") %>
 <div class="tasks-container">
@@ -47,7 +47,7 @@
                             <div class="date">$Created.Nice</div>
                             <div class="desc">$Description</div>
                             <% if $Element %>
-                                <div class="ele"><span data-target="$Element">Show Element</span></div>
+                                $Element
                             <% end_if %>
                         </div>
                     </div>

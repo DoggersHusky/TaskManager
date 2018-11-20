@@ -51,25 +51,26 @@
             
         });
         
-        
-        
-        
-        /*
-         * show element for issue
-         */
-        $('.ele span').click(function() {
+        $('.element-selector').click(function() {
             
-            //get target
-            var target = $(this).attr('data-target');
-            //change background color
-            $(target).css('background-color','yellow');
+            //prevent default
+            $('a').click(function(e) {
+                e.preventDefault();
+            });
             
-            setTimeout(function() {
-                $(target).css('background-color','');
-            }, 500);
-            
-        });
+            var myExampleClickHandler = function (element) {
+                
+                $('.display-element').html(element.outerHTML);
+                $('#Form_TaskManagerForm_Element').val(element.outerHTML);
+                $('a').unbind("click");
 
+            }
+            var myDomOutline = DomOutline({ onClick: myExampleClickHandler});
+
+            // Start outline:
+            myDomOutline.start();
+        });
+        
 
         /*
          * allows completion of a task
