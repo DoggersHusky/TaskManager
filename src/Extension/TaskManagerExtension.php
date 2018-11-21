@@ -94,17 +94,24 @@ class TaskManagerExtension extends DataExtension {
         $new->PageID = $this->owner->ID;
         $new->write();
         
+        $form->sessionMessage('Good job on submitting this form fella', 'good');
+        
         return $this->owner->redirectBack();
     }
     
+    /*
+     * mark a task as completed
+     */
     public function CompleteTask() {
         
-        $item = Task::get()->byID($this->owner->request->param('ID'));
-        $item->Complete = 1;
-        $item->write();
+        //make sure the user is logged in as admin
+        if (Permission::check('ADMIN')) {
+            $item = Task::get()->byID($this->owner->request->param('ID'));
+            $item->Complete = 1;
+            $item->write();
+        }
         
         return $this->owner->redirectBack();
-        
     }
     
     
