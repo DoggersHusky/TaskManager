@@ -1,7 +1,8 @@
 (function($){
 
     $(document).ready(function() {
-
+        
+       
         $('.tasks-toggle').click(function() {
 
             //toggle the task list
@@ -65,7 +66,7 @@
                 var target = $(element);
                 
                 //pass in the selected element
-                selector.push(""+target.get(0).nodeName.toLowerCase()+':contains("'+$.trim(target.text())+'")');
+                selector.push(""+target.get(0).nodeName.toLowerCase()+':contains("'+ $.trim( target.text() ) +'")');
                 
                 //get all the parents of the element so we make sure we are targeting the correct element
                 $(element).parentsUntil('html').each(function() {
@@ -107,6 +108,11 @@
             
             //get target
             var target = $(this).attr('data-target');
+            //replace br with ")
+            target = target.replace('<br />', '")');
+            //delete everything after the first ")
+            target = target.substring(-1, target.indexOf('")')+ '")'.length );
+
             //change background color
             $(target).css('background-color','yellow');
 
