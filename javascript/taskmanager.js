@@ -64,13 +64,26 @@
                 //an array to store the selected element and parents
                 var selector = new Array();;
                 var target = $(element);
+                var eleClass;
+                var eleID;
                 
+                //does this have a class
+                if (element.className) {
+                    eleClass = "."+element.className.replace(" ", ".");
+                }
+                    
                 //pass in the selected element
-                selector.push(""+target.get(0).nodeName.toLowerCase()+':contains("'+ $.trim( target.text() ) +'")');
+                selector.push(""+target.get(0).nodeName.toLowerCase()+eleClass+':contains("'+ $.trim( target.text() ) +'")');
                 
                 //get all the parents of the element so we make sure we are targeting the correct element
                 $(element).parentsUntil('html').each(function() {
-                    selector.push(""+$(this).get(0).nodeName.toLowerCase())
+
+                    //does this have a class
+                    if ($(this).attr("class")) {
+                        eleClass = "."+$(this).attr("class").replace(" ", ".");
+                    }
+                    
+                    selector.push(""+$(this).get(0).nodeName.toLowerCase()+eleClass)
                 });
                 
                 //reverse the array
