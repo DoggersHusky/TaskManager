@@ -12,6 +12,8 @@ use BucklesHusky\TaskManager\Model\Task;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Security\Permission;
+use SilverStripe\Forms\ReadonlyField;
+use SilverStripe\Forms\RequiredFields;
 
 class TaskManagerExtension extends DataExtension {
     
@@ -65,14 +67,15 @@ class TaskManagerExtension extends DataExtension {
                     $this->owner,
                     __FUNCTION__,
                     FieldList::create(
-                        LiteralField::create('Ele','Element: <span class="display-element"></span>'),
-                        TextField::create('Title', 'Title'),
-                        TextareaField::create('Description','Description'),
+                        ReadonlyField::create('Ele','Element'),
+                        TextField::create('Title', 'Title')->setDescription('Use a couple of words to summarize the issue/change'),
+                        TextareaField::create('Description','Description')->setDescription('Leave a detailed description of the issue/change here'),
                         HiddenField::create('Element','Element')
                     ),
                     FieldList::create(
                         FormAction::create('SaveTask', 'Save')
-                    )
+                    ),
+                    RequiredFields::create('Title','Description')
                 );
         
         return $form;

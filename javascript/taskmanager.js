@@ -52,6 +52,9 @@
             
         });
         
+        /*
+         * start the element selector
+         */
         $('.element-selector').click(function() {
             
             //prevent default
@@ -59,7 +62,7 @@
                 e.preventDefault();
             });
             
-            //trigger click on new tab
+            //close new tab
             $('.new-task-toggle').click();
             
             var myExampleClickHandler = function (element) {
@@ -67,6 +70,9 @@
                 //an array to store the selected element and parents
                 var selector = new Array();;
                 var target = $(element);
+                //element to display to user
+                var targetElement;
+                //use to store class
                 var eleClass = "";
                 var eleID = "";
                 
@@ -77,10 +83,12 @@
                     
                 //pass in the selected element
                 selector.push(""+target.get(0).nodeName.toLowerCase()+eleClass+':contains("'+ $.trim( target.text() ) +'")');
+                //update target element
+                targetElement = target.get(0).nodeName.toLowerCase()+eleClass;
                 
                 //get all the parents of the element so we make sure we are targeting the correct element
                 $(element).parentsUntil('html').each(function() {
-                    
+                    //clear the variable
                     eleClass = "";
                     
                     //does this have a class
@@ -88,6 +96,7 @@
                         eleClass = "."+$(this).attr("class").replace(/\s/g,".");
                     }
                     
+                    //push to array
                     selector.push(""+$(this).get(0).nodeName.toLowerCase()+eleClass)
                 });
                 
@@ -95,24 +104,30 @@
                 selector = selector.reverse().join(" ");
                 
                 //update the display element and hidden field
-                $('.display-element').html(target.text());
+                $('#Form_TaskManagerForm_Ele_Holder i').html(targetElement);
                 $('#Form_TaskManagerForm_Element').val(selector);
                 $('a').unbind("click");
                 
                 //check to see if it failed to find target
                 if (!$(selector).length > 0) {
                     
+                    //output to console
+                    console.log('Target could not be found. Trying second approach.');
+                    
                     //try removing contains
                     selector = selector.substring(0, selector.indexOf(':'));
                     
                     //check to see if it failed to find target
                     if (!$(selector).length > 0) {
-                        alert('failed');
+                        
+                        //output to console
+                        console.log('Odd case detected. '+selector);
+                        
                     }
                     
                 }
                 
-                //trigger click on new tab
+                //reopen new tab
                 $('.new-task-toggle').click();
                 
             }
@@ -122,6 +137,7 @@
             // Start outline:
             myDomOutline.start();
         });
+        
         
         /*
          * show element for issue

@@ -10,7 +10,7 @@
 .tasks {
     display: none;
     box-sizing: border-box;
-    background-color: white;
+    background-color: rgba(255,255,255,0.8);
     width: 300px;
     border-color: black;
     border-width: 1px;
@@ -26,10 +26,10 @@
     top: 0px;
     display: none;
     width: 300px;
-    height: 400px;
+    height: 500px;
     float: left;
     box-sizing: border-box;
-    background-color: white;
+    background-color: rgba(255,255,255,0.8);
     border-color: black;
     border-width: 1px;
     border-style: solid;
@@ -44,7 +44,7 @@
     height: 500px;
     float: left;
     box-sizing: border-box;
-    background-color: white;
+    background-color: rgba(255,255,255,0.8);
     border-color: black;
     border-width: 1px;
     border-style: solid;
@@ -81,7 +81,8 @@
 .new-task-toggle:hover,
 .all-tasks-toggle:hover,
 .tasks-container .ele span:hover,
-.tasks-container .element-selector span:hover{
+.tasks-container .element-selector span:hover,
+.tasks-container form input[type="submit"]:hover{
     filter: brightness(110%);
 }
 
@@ -139,7 +140,8 @@ form textarea{
 }
 
 .tasks-container .element-selector span,
-.tasks-container .ele span{
+.tasks-container .ele span,
+.tasks-container form input[type="submit"]{
     background-color: #00d2ff;
     color: white;
     display: block;
@@ -148,6 +150,7 @@ form textarea{
     font-size: 123%;
     font-weight: bold;
     cursor: pointer;
+    width: 100%;
 }
 
 .tasks-container .complete {
@@ -172,6 +175,32 @@ form textarea{
 
 .tasks-container .complete a:hover {
     background-position-x: -60px;
+}
+
+.tasks-container form .field.text {
+    width: 100%;
+    margin: 10px 0 15px;
+}
+
+.tasks-container form .field.text input,
+.tasks-container form #Form_TaskManagerForm_Ele_Holder i,
+.tasks-container form .field.readonly{
+    width: 100%;
+}
+
+.tasks-container form #Form_TaskManagerForm_Ele_Holder i{
+    display: block;
+    padding: 6px 5px;
+    font-size: 15px;
+    background-color: #fff;
+    border: 1px solid #dad9d9;
+    box-sizing: border-box;
+}
+
+.tasks-container form .description {
+    font-size: 90%;
+    color: #00d2ff;
+    font-weight: bold;
 }
 
 .task-manager-select {
