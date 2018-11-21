@@ -78,8 +78,10 @@
                 //get all the parents of the element so we make sure we are targeting the correct element
                 $(element).parentsUntil('html').each(function() {
                     
+                    eleClass = "";
+                    
                     //does this have a class
-                    if ($(this).attr("class") !== "") {
+                    if ($(this).attr("class")) {
                         eleClass = "."+$(this).attr("class").replace(/\s/g,".");
                     }
                     
