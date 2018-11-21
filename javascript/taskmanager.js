@@ -136,11 +136,11 @@
             target = target.substring(-1, target.indexOf('")')+ '")'.length );
 
             //change background color
-            $(target).css('background-color','yellow');
+            $(target).addClass('task-manager-select');
 
             setTimeout(function() {
-                $(target).css('background-color','');
-            }, 500);
+                $(target).removeClass('task-manager-select');
+            }, 1000);
             
         });
         
