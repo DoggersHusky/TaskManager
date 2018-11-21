@@ -59,6 +59,9 @@
                 e.preventDefault();
             });
             
+            //trigger click on new tab
+            $('.new-task-toggle').click();
+            
             var myExampleClickHandler = function (element) {
                 
                 //an array to store the selected element and parents
@@ -108,6 +111,10 @@
                     }
                     
                 }
+                
+                //trigger click on new tab
+                $('.new-task-toggle').click();
+                
             }
             
             var myDomOutline = DomOutline({ onClick: myExampleClickHandler});
