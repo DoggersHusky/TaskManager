@@ -151,6 +151,7 @@ form textarea{
     font-weight: bold;
     cursor: pointer;
     width: 100%;
+    border: none;
 }
 
 .tasks-container .complete {
@@ -177,14 +178,16 @@ form textarea{
     background-position-x: -60px;
 }
 
-.tasks-container form .field.text {
+.tasks-container form .field.text,
+.tasks-container form .field.textarea{
     width: 100%;
     margin: 10px 0 15px;
 }
 
 .tasks-container form .field.text input,
 .tasks-container form #Form_TaskManagerForm_Ele_Holder i,
-.tasks-container form .field.readonly{
+.tasks-container form .field.readonly,
+.tasks-container form .field.textarea textarea{
     width: 100%;
 }
 
