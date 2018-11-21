@@ -69,7 +69,7 @@
                 
                 //does this have a class
                 if (element.className) {
-                    eleClass = "."+element.className.replace(" ", ".");
+                    eleClass = "."+element.className.replace(/\s/g,".");
                 }
                     
                 //pass in the selected element
@@ -80,7 +80,7 @@
 
                     //does this have a class
                     if ($(this).attr("class")) {
-                        eleClass = "."+$(this).attr("class").replace(" ", ".");
+                        eleClass = "."+$(this).attr("class").replace(/\s/g,".");
                     }
                     
                     selector.push(""+$(this).get(0).nodeName.toLowerCase()+eleClass)
