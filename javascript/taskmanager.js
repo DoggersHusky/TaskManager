@@ -65,7 +65,7 @@
                 var target = $(element);
                 
                 //pass in the selected element
-                selector.push(""+target.get(0).nodeName.toLowerCase()+':contains("'+target.text()+'")');
+                selector.push(""+target.get(0).nodeName.toLowerCase()+':contains("'+$.trim(target.text())+'")');
                 
                 //get all the parents of the element so we make sure we are targeting the correct element
                 $(element).parentsUntil('html').each(function() {
@@ -79,7 +79,19 @@
                 $('.display-element').html(target.text());
                 $('#Form_TaskManagerForm_Element').val(selector);
                 $('a').unbind("click");
-
+                
+                //check to see if it failed to find target
+                if (!$(selector).length > 0) {
+                    
+                    //try removing contains
+                    selector = selector.substring(0, selector.indexOf(':'));
+                    
+                    //check to see if it failed to find target
+                    if (!$(selector).length > 0) {
+                        alert('failed');
+                    }
+                    
+                }
             }
             
             var myDomOutline = DomOutline({ onClick: myExampleClickHandler});
