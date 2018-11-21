@@ -60,20 +60,24 @@
             
             var myExampleClickHandler = function (element) {
                 
-                var target = new Array();;
+                //an array to store the selected element and parents
+                var selector = new Array();;
+                var target = $(element);
                 
                 //pass in the selected element
-                target.push(""+$(element).get(0).nodeName.toLowerCase()+':contains("'+$(element).text()+'")');
+                selector.push(""+target.get(0).nodeName.toLowerCase()+':contains("'+target.text()+'")');
                 
+                //get all the parents of the element so we make sure we are targeting the correct element
                 $(element).parentsUntil('html').each(function() {
-                    target.push(""+$(this).get(0).nodeName.toLowerCase())
+                    selector.push(""+$(this).get(0).nodeName.toLowerCase())
                 });
-
-                target = target.reverse().join(" ");
-
                 
-                $('.display-element').html(target);
-                $('#Form_TaskManagerForm_Element').val(target);
+                //reverse the array
+                selector = selector.reverse().join(" ");
+                
+                //update the display element and hidden field
+                $('.display-element').html(target.text());
+                $('#Form_TaskManagerForm_Element').val(selector);
                 $('a').unbind("click");
 
             }

@@ -17,6 +17,7 @@
     </div>
     <div class="all-task">
         <% with $TaskManager %>
+            $CompletedTasks/$TotalTasks
             <% if $AllTasks %>
                 <% loop $AllTasks.Sort(ID DESC) %>
                     <div class="task">
@@ -38,6 +39,7 @@
     </div>
     <div class="tasks">
         <% with $TaskManager %>
+            $PageCompletedTasks/$PageTotalTasks
             <% if $PageTasks %>
                 <% loop $PageTasks.Sort(ID DESC) %>
                     <div class="task">

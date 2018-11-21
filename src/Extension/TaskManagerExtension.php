@@ -35,9 +35,19 @@ class TaskManagerExtension extends DataExtension {
             'PageTasks' => $this->owner->Tasks()->filter(array(
                 'Complete'=>'0'
             )),
+            'PageTotalTasks' => $this->owner->Tasks()->count(),
+            'PageCompletedTasks' => $this->owner->Tasks()->filter(array(
+                'Complete'=>'1'
+            ))->count(),
+            
+            
             'AllTasks' => Task::get()->filter(array(
                 'Complete'=>'0'
-            ))
+            )),
+            'TotalTasks' => Task::get()->count(),
+            'CompletedTasks'=> Task::get()->filter(array(
+                'Complete'=>'1'
+            ))->count()
         );
         
         $page = $this->owner->customise(['TaskManager' => $data]);
