@@ -11,7 +11,7 @@ class Task extends DataObject {
         'Title' => 'Text',
         'Description' => 'Text',
         'Complete' => 'Boolean',
-        'Element' => 'HTMLText'
+        'Element' => 'Text'
     ];
     
     private static $has_one = [

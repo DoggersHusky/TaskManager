@@ -60,8 +60,23 @@
             
             var myExampleClickHandler = function (element) {
                 
-                $('.display-element').html(element.outerHTML);
-                $('#Form_TaskManagerForm_Element').val(element.outerHTML);
+                var target = new Array();;
+                
+                //pass in the selected element
+                target.push(""+$(element).get(0).nodeName.toLowerCase());
+                
+                $(element).parentsUntil('html').each(function() {
+                    target.push(""+$(this).get(0).nodeName.toLowerCase())
+                });
+                
+                
+                
+                
+                console.log(target.reverse().join(" "));
+                
+                
+                $('.display-element').html(target.reverse().join(" "));
+                $('#Form_TaskManagerForm_Element').val(target.reverse().join(" "));
                 $('a').unbind("click");
 
             }
@@ -69,6 +84,22 @@
 
             // Start outline:
             myDomOutline.start();
+        });
+        
+        /*
+         * show element for issue
+         */
+        $('.ele span').click(function() {
+            
+            //get target
+            var target = $(this).attr('data-target');
+            //change background color
+            $(target).css('background-color','yellow');
+            
+            setTimeout(function() {
+                $(target).css('background-color','');
+            }, 500);
+            
         });
         
 

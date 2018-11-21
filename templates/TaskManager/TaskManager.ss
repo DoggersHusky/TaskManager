@@ -47,7 +47,7 @@
                             <div class="date">$Created.Nice</div>
                             <div class="desc">$Description</div>
                             <% if $Element %>
-                                $Element
+                                <div class="ele"><span data-target="$Element">Show Element</span></div>
                             <% end_if %>
                         </div>
                     </div>

@@ -110,7 +110,6 @@ var DomOutline = function (options) {
             }
         }      
         
-        console.log(e);
         pub.element = e.target;
 
         var b = self.opts.borderWidth;
