@@ -63,23 +63,21 @@
                 var target = new Array();;
                 
                 //pass in the selected element
-                target.push(""+$(element).get(0).nodeName.toLowerCase());
+                target.push(""+$(element).get(0).nodeName.toLowerCase()+':contains("'+$(element).text()+'")');
                 
                 $(element).parentsUntil('html').each(function() {
                     target.push(""+$(this).get(0).nodeName.toLowerCase())
                 });
+
+                target = target.reverse().join(" ");
+
                 
-                
-                
-                
-                console.log(target.reverse().join(" "));
-                
-                
-                $('.display-element').html(target.reverse().join(" "));
-                $('#Form_TaskManagerForm_Element').val(target.reverse().join(" "));
+                $('.display-element').html(target);
+                $('#Form_TaskManagerForm_Element').val(target);
                 $('a').unbind("click");
 
             }
+            
             var myDomOutline = DomOutline({ onClick: myExampleClickHandler});
 
             // Start outline:
@@ -95,7 +93,7 @@
             var target = $(this).attr('data-target');
             //change background color
             $(target).css('background-color','yellow');
-            
+
             setTimeout(function() {
                 $(target).css('background-color','');
             }, 500);

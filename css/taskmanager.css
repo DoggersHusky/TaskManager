@@ -80,6 +80,7 @@
 .tasks-toggle:hover,
 .new-task-toggle:hover,
 .all-tasks-toggle:hover,
+.tasks-container .ele span:hover,
 .tasks-container .element-selector span:hover{
     filter: brightness(110%);
 }
@@ -137,7 +138,8 @@ form textarea{
     overflow: hidden;
 }
 
-.tasks-container .element-selector span{
+.tasks-container .element-selector span,
+.tasks-container .ele span{
     background-color: #00d2ff;
     color: white;
     display: block;
