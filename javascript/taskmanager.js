@@ -8,19 +8,35 @@
         $('.tasks-container .toggle').click(function() {
             
             var target = '.'+$(this).attr('data-target');
+            var parent = $(this);
             
             $(target).toggle('slow',function() {
                 //check to see if this is open or closed
                 if ($(this).hasClass('open')) {
-                    $(target+'-toggle').css('background-position-x','0px');
+                    $(parent).css('background-position-x','0px');
                     $(this).removeClass('open');
                 }else{
-                    $(target+'-toggle').css('background-position-x','-50px');
+                    $(parent).css('background-position-x','-50px');
                     $(this).addClass('open');
                 }
             });
             
         });
+        
+        /*
+         * close all open tabs
+         */
+        function closeAllOpenTabs() {
+            $('.tasks-container .toggle').each(function() {
+                //get the target tab
+                var target = '.'+$(this).attr('data-target');
+                //check to see if it is open
+                if ($(target).hasClass('open')) {
+                    //close the tab
+                    $(this).click();
+                }
+            });
+        }
         
         /*
          * start the element selector
@@ -32,8 +48,8 @@
                 e.preventDefault();
             });
             
-            //close new tab
-            $('.new-task-toggle').click();
+            //close all open tabs
+            closeAllOpenTabs();
             
             var myExampleClickHandler = function (element) {
                 
