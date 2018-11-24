@@ -3,9 +3,9 @@
 <% require javascript("buckleshusky/taskmanager: javascript/taskmanager.js") %>
 <% require css("buckleshusky/taskmanager: css/taskmanager.css") %>
 <div class="tasks-container">
-    <div class="new-task-toggle"></div>
-    <div class="tasks-toggle"></div>
-    <div class="all-tasks-toggle"></div>
+    <div class="new-task-toggle toggle" data-target="new-task"></div>
+    <div class="all-tasks-toggle toggle" data-target="all-tasks"></div>
+    <div class="tasks-toggle toggle" data-target="tasks"></div>
     <div class="new-task">
         
         <div class="element-selector">
@@ -15,7 +15,7 @@
         $TaskManagerForm
 
     </div>
-    <div class="all-task">
+    <div class="all-tasks">
         <% with $TaskManager %>
             $CompletedTasks/$TotalTasks
             <% if $AllTasks %>

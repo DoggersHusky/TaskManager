@@ -2,50 +2,20 @@
 
     $(document).ready(function() {
         
-       
-        $('.tasks-toggle').click(function() {
-
-            //toggle the task list
-            $('.tasks').toggle('slow',function() {
-                //check to see if this is open or closed
-                if ($(this).hasClass('open')) {
-                    $('.tasks-toggle').css('background-position-x','0px');
-                    $(this).removeClass('open');
-                }else{
-                    $('.tasks-toggle').css('background-position-x','-50px');
-                    $(this).addClass('open');
-                }
-            });
+        /*
+         * handles opening and closing of the tabs
+         */
+        $('.tasks-container .toggle').click(function() {
             
-        });
-        
-        
-        $('.new-task-toggle').click(function() {
-
-            //toggle the task list
-            $('.new-task').toggle('slow',function() {
-                //check to see if this is open or closed
-                if ($(this).hasClass('open')) {
-                    $('.new-task-toggle').css('background-position-x','0px');
-                    $(this).removeClass('open');
-                }else{
-                    $('.new-task-toggle').css('background-position-x','-50px');
-                    $(this).addClass('open');
-                }
-            });
+            var target = '.'+$(this).attr('data-target');
             
-        });
-        
-        $('.all-tasks-toggle').click(function() {
-
-            //toggle the task list
-            $('.all-task').toggle('slow',function() {
+            $(target).toggle('slow',function() {
                 //check to see if this is open or closed
                 if ($(this).hasClass('open')) {
-                    $('.all-tasks-toggle').css('background-position-x','0px');
+                    $(target+'-toggle').css('background-position-x','0px');
                     $(this).removeClass('open');
                 }else{
-                    $('.all-tasks-toggle').css('background-position-x','-50px');
+                    $(target+'-toggle').css('background-position-x','-50px');
                     $(this).addClass('open');
                 }
             });
