@@ -10,3 +10,7 @@ SilverStripe\CMS\Controllers\ContentController:
 Page:
     extensions:
         - BucklesHusky\TaskManager\Extension\TaskManagerPageExtension
+        
+SilverStripe\Security\Member:
+    extensions:
+        - BucklesHusky\TaskManager\Extension\MemberExt

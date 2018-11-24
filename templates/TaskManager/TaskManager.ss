@@ -24,10 +24,22 @@
                         <div class="complete"><a href="{$Top.Link}CompleteTask/$ID"></a></div>
                         <div class="task-info">
                             <div><strong>$Title</strong></div>
-                            <div class="date">$Created.Nice</div>
-                            <div class="desc">$Description</div>
-                            <% if $Element %>
-                                <div class="ele"><span data-target='$Element'>Show Element</span></div>
+                            <div class="date">
+                                $Member.FirstName - $Created.Nice
+                            </div>
+                            <div class="desc">
+                                $Description
+                            </div>
+                            <% if $Top.ID == $Page.ID %>
+                                <% if $Element %>
+                                    <div class="ele">
+                                        <span data-target='$Element'>Show Element</span>
+                                    </div>
+                                <% end_if %>
+                            <% else %>
+                            <div class="ele">
+                                <a href="$Page.Link">Go to Page</a>
+                            </div>
                             <% end_if %>
                         </div>
                     </div>
@@ -43,13 +55,21 @@
             <% if $PageTasks %>
                 <% loop $PageTasks.Sort(ID DESC) %>
                     <div class="task">
-                        <div class="complete"><a href="{$Top.Link}CompleteTask/$ID"></a></div>
+                        <div class="complete">
+                            <a href="{$Top.Link}CompleteTask/$ID"></a>
+                        </div>
                         <div class="task-info">
-                            <div><strong>$Title</strong></div>
-                            <div class="date">$Created.Nice</div>
+                            <div>
+                                <strong>$Title</strong>
+                            </div>
+                            <div class="date">
+                                <strong>$Member.FirstName</strong> - $Created.Nice
+                            </div>
                             <div class="desc">$Description</div>
                             <% if $Element %>
-                                <div class="ele"><span data-target='$Element'>Show Element</span></div>
+                                <div class="ele">
+                                    <span data-target='$Element'>Show Element</span>
+                                </div>
                             <% end_if %>
                         </div>
                     </div>

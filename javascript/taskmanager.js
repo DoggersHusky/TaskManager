@@ -121,7 +121,7 @@
                     if (!$(selector).length > 0) {
                         
                         //output to console
-                        console.log('Odd case detected. '+selector);
+                        console.log('Odd case detected: '+selector);
                         
                     }
                     

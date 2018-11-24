@@ -4,6 +4,7 @@ namespace BucklesHusky\TaskManager\Model;
 
 use SilverStripe\ORM\DataObject;
 use Page;
+use SilverStripe\Security\Member;
 
 class Task extends DataObject {
     
@@ -15,7 +16,8 @@ class Task extends DataObject {
     ];
     
     private static $has_one = [
-        'Page' => Page::class
+        'Page' => Page::class,
+        'Member' => Member::class
     ];
     
     public function getCMSFields() {

@@ -14,6 +14,7 @@ use SilverStripe\Forms\HiddenField;
 use SilverStripe\Security\Permission;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Security\Security;
 
 class TaskManagerExtension extends DataExtension {
     
@@ -87,19 +88,24 @@ class TaskManagerExtension extends DataExtension {
      */
     public function SaveTask($data, $form) {
         
-        //create a new task for this page
-        $new = Task::create();
-        $new->Title = $data['Title'];
-        $new->Description = $data['Description'];
-        if ($data['Element']) {
-            $new->Element = $data['Element'];
+        if ($member = Security::getCurrentUser()) {
+        
+            //create a new task for this page
+            $new = Task::create();
+            $new->Title = $data['Title'];
+            $new->Description = $data['Description'];
+            if ($data['Element']) {
+                $new->Element = $data['Element'];
+            }
+            $new->PageID = $this->owner->ID;
+            //the user that create the task
+            $new->MemberID = $member->ID;
+            $new->write();
+
+            $form->sessionMessage('Good job on submitting this form fella', 'good');
+
+            return $this->owner->redirectBack();
         }
-        $new->PageID = $this->owner->ID;
-        $new->write();
-        
-        $form->sessionMessage('Good job on submitting this form fella', 'good');
-        
-        return $this->owner->redirectBack();
     }
     
     /*
