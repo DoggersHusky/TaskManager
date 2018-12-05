@@ -15,6 +15,7 @@ use SilverStripe\Security\Permission;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Security\Security;
+use SilverStripe\Core\Config\Config;
 
 class TaskManagerExtension extends DataExtension {
     
@@ -56,6 +57,11 @@ class TaskManagerExtension extends DataExtension {
         $page = $this->owner->customise(['TaskManager' => $data]);
         return $page->renderWith('TaskManager\\TaskManager');
         
+    }
+    
+    public function getIncludeJuery(){
+        var_dump(Config::inst()->get('TaskManager', 'JQueryInclude'));
+        return (boolean)Config::inst()->get('TaskManager', 'JQueryInclude');
     }
     
     /*

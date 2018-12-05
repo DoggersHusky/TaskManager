@@ -1,4 +1,6 @@
-<% require javascript("buckleshusky/taskmanager: javascript/jquery-3.3.1.min.js") %>
+<% if $IncludeJuery %>
+    <% require javascript("buckleshusky/taskmanager: javascript/jquery-3.3.1.min.js") %>
+<% end_if %>
 <% require javascript("buckleshusky/taskmanager: javascript/jquery.dom-outline-1.0.js") %>
 <% require javascript("buckleshusky/taskmanager: javascript/taskmanager.js") %>
 <% require css("buckleshusky/taskmanager: css/taskmanager.css") %>
