@@ -59,8 +59,10 @@ class TaskManagerExtension extends DataExtension {
         
     }
     
+    /*
+     * get if jquery needs to be included
+     */
     public function getIncludeJuery(){
-        var_dump(Config::inst()->get('TaskManager', 'JQueryInclude'));
         return (boolean)Config::inst()->get('TaskManager', 'JQueryInclude');
     }
     
