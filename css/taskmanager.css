@@ -16,7 +16,7 @@
     border-width: 1px;
     border-style: solid;
     height: 500px;
-    overflow-y: scroll;
+    overflow-y: scroll !important;
     position: relative;
     top: 0px;
 }
@@ -34,7 +34,7 @@
     border-width: 1px;
     border-style: solid;
     padding: 5px 10px 15px 10px;
-    overflow-y: auto;
+    overflow-y: auto !important;
 }
 
 .all-tasks {
@@ -50,7 +50,7 @@
     border-width: 1px;
     border-style: solid;
     padding: 5px 10px 15px 10px;
-    overflow-y: scroll;
+    overflow-y: scroll !important;
 }
 
 .tasks-toggle {
