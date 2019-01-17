@@ -14,3 +14,7 @@ Page:
 SilverStripe\Security\Member:
     extensions:
         - BucklesHusky\TaskManager\Extension\MemberExt
+        
+SilverStripe\CMS\Controllers\CMSPageEditController:
+    extensions:
+        - BucklesHusky\TaskManager\Extension\CMSPageEditControllerExt
