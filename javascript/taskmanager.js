@@ -148,6 +148,16 @@
             //change background color
             $(target).addClass("task-manager-select");
 
+            //scroll page to element
+            $("html, body").animate(
+                {
+                    scrollTop: $(target)
+                        .first()
+                        .offset().top
+                },
+                500
+            );
+
             setTimeout(function() {
                 $(target).removeClass("task-manager-select");
             }, 1000);
