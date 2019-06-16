@@ -211,7 +211,7 @@
     font-weight: bold;
 }
 
-.tasks-container .task-manager-select {
+.task-manager-select {
     position: relative !important;
     border-color: yellow !important;
     border-width: 4px !important;
@@ -219,7 +219,7 @@
     padding: 0px !important;
 }
 
-.tasks-container .task-manager-select:after {
+.task-manager-select:after {
     position: absolute !important;
     z-index: 99999 !important;
     display: block !important;
