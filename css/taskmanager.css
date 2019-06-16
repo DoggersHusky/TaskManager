@@ -7,10 +7,10 @@
     z-index: 9999999;
 }
 
-.tasks {
+.tasks-container .tasks {
     display: none;
     box-sizing: border-box;
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     width: 325px;
     border-color: black;
     border-width: 1px;
@@ -21,7 +21,7 @@
     top: 0px;
 }
 
-.new-task {
+.tasks-container .new-task {
     position: relative;
     top: 0px;
     display: none;
@@ -29,7 +29,7 @@
     height: 550px;
     float: left;
     box-sizing: border-box;
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     border-color: black;
     border-width: 1px;
     border-style: solid;
@@ -37,7 +37,7 @@
     overflow-y: auto !important;
 }
 
-.all-tasks {
+.tasks-container .all-tasks {
     position: relative;
     top: 0px;
     display: none;
@@ -45,7 +45,7 @@
     height: 500px;
     float: left;
     box-sizing: border-box;
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     border-color: black;
     border-width: 1px;
     border-style: solid;
@@ -53,7 +53,7 @@
     overflow-y: scroll !important;
 }
 
-.tasks-toggle {
+.tasks-container .tasks-toggle {
     display: block;
     width: 50px;
     height: 100px;
@@ -65,7 +65,7 @@
     top: 200px;
 }
 
-.all-tasks-toggle {
+.tasks-container .all-tasks-toggle {
     display: block;
     width: 50px;
     height: 100px;
@@ -78,17 +78,17 @@
     top: 100px;
 }
 
-.tasks-toggle:hover,
-.new-task-toggle:hover,
-.all-tasks-toggle:hover,
+.tasks-container .tasks-toggle:hover,
+.tasks-container .new-task-toggle:hover,
+.tasks-container .all-tasks-toggle:hover,
 .tasks-container .ele span:hover,
 .tasks-container .ele a:hover,
 .tasks-container .element-selector span:hover,
-.tasks-container form input[type="submit"]:hover{
+.tasks-container form input[type="submit"]:hover {
     filter: brightness(110%);
 }
 
-.new-task-toggle {
+.tasks-container .new-task-toggle {
     display: block;
     width: 50px;
     height: 100px;
@@ -100,7 +100,7 @@
     background-position-y: -100px;
 }
 
-.task {
+.tasks-container .task {
     padding: 5px 10px 15px 10px;
     border-bottom-color: black;
     border-bottom-width: 1px;
@@ -108,14 +108,14 @@
     display: flex;
 }
 
-form {
+.tasks-container form {
     max-width: 300px;
     width: 100%;
     box-sizing: border-box;
 }
 
-form  input,
-form textarea{
+.tasks-container form input,
+.tasks-container form textarea {
     box-sizing: border-box;
 }
 
@@ -123,15 +123,13 @@ form textarea{
     font-size: 75%;
 }
 
-.tasks-container .tasks .desc{
+.tasks-container .tasks .desc {
     padding-left: 10px;
 }
 
-.tasks-container .tasks .desc{
+.tasks-container .tasks .desc {
     padding-left: 10px;
 }
-
-
 
 .tasks-container .element-selector {
     display: block;
@@ -144,7 +142,7 @@ form textarea{
 .tasks-container .element-selector span,
 .tasks-container .ele span,
 .tasks-container .ele a,
-.tasks-container form input[type="submit"]{
+.tasks-container form input[type="submit"] {
     background-color: #00d2ff;
     color: white;
     display: block;
@@ -186,7 +184,7 @@ form textarea{
 }
 
 .tasks-container form .field.text,
-.tasks-container form .field.textarea{
+.tasks-container form .field.textarea {
     width: 100%;
     margin: 10px 0 15px;
 }
@@ -194,11 +192,11 @@ form textarea{
 .tasks-container form .field.text input,
 .tasks-container form #Form_TaskManagerForm_Ele_Holder i,
 .tasks-container form .field.readonly,
-.tasks-container form .field.textarea textarea{
+.tasks-container form .field.textarea textarea {
     width: 100%;
 }
 
-.tasks-container form #Form_TaskManagerForm_Ele_Holder i{
+.tasks-container form #Form_TaskManagerForm_Ele_Holder i {
     display: block;
     padding: 6px 5px;
     font-size: 15px;
@@ -213,7 +211,7 @@ form textarea{
     font-weight: bold;
 }
 
-.task-manager-select {
+.tasks-container .task-manager-select {
     position: relative !important;
     border-color: yellow !important;
     border-width: 4px !important;
@@ -221,13 +219,13 @@ form textarea{
     padding: 0px !important;
 }
 
-.task-manager-select:after {
+.tasks-container .task-manager-select:after {
     position: absolute !important;
     z-index: 99999 !important;
     display: block !important;
     content: " " !important;
     width: 100% !important;
     height: 100% !important;
-    background-color: rgba(255,255,0,0.8) !important;
+    background-color: rgba(255, 255, 0, 0.8) !important;
     top: 0px;
 }

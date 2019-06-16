@@ -11,7 +11,7 @@ class CMSPageEditControllerExt extends Extension {
     public function doMarkComplete($data, Form $form) {
         //get current page Tasks
         $tasks=$this->owner->currentPage()->Tasks();
-        
+        //how many task were marked as completed.
         $count = 0;
         
         foreach($tasks as $task) {
