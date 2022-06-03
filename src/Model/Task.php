@@ -21,7 +21,8 @@ class Task extends DataObject {
         'Member' => Member::class
     ];
     
-    public function getCMSFields() {
+    public function getCMSFields()
+    {
         $fields = parent::getCMSFields();
         
         return $fields;
