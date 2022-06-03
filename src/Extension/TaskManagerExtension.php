@@ -2,22 +2,26 @@
 
 namespace BucklesHusky\TaskManager\Extension;
 
-use SilverStripe\ORM\DataExtension;
-use SilverStripe\Forms\Form;
-use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\TextareaField;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\FormAction;
 use BucklesHusky\TaskManager\Model\Task;
-use SilverStripe\Forms\LiteralField;
+use BucklesHusky\TaskManager\Traits\GitHub;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HiddenField;
-use SilverStripe\Security\Permission;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataExtension;
+use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
-use SilverStripe\Core\Config\Config;
+use SilverStripe\SiteConfig\SiteConfig;
 
-class TaskManagerExtension extends DataExtension {
+class TaskManagerExtension extends DataExtension
+{
+    use GitHub;
     
     private static $allowed_actions = [
         'TaskManagerForm',
@@ -70,34 +74,58 @@ class TaskManagerExtension extends DataExtension {
      * generates a form to display on the front end. 
      * This form allows users to add a new task
      */
-    public function TaskManagerForm() {
-        
+    public function TaskManagerForm()
+    {
+        // get the current site config
+        $currentSiteConfig = SiteConfig::current_site_config();
+
         $form = Form::create(
-                    $this->owner,
-                    __FUNCTION__,
-                    FieldList::create(
-                        ReadonlyField::create('Ele','Element'),
-                        TextField::create('Title', 'Title')->setDescription('Use a couple of words to summarize the issue/change'),
-                        TextareaField::create('Description','Description')->setDescription('Leave a detailed description of the issue/change here'),
-                        HiddenField::create('Element','Element')
-                    ),
-                    FieldList::create(
-                        FormAction::create('SaveTask', 'Save')
-                    ),
-                    RequiredFields::create('Title','Description')
-                );
+                        $this->owner,
+                        __FUNCTION__,
+                        FieldList::create(
+                            ReadonlyField::create('Ele','Element'),
+                            TextField::create('Title', 'Title')->setDescription('Use a couple of words to summarize the issue/change'),
+                            TextareaField::create('Description','Description')->setDescription('Leave a detailed description of the issue/change here'),
+                            HiddenField::create('Element','Element')
+                        ),
+                        FieldList::create(
+                            FormAction::create('SaveTask', 'Save')
+                        ),
+                        RequiredFields::create('Title','Description')
+                    );
+
+        // if github integration is enabled push the checkbox
+        if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
+            $form->Fields()->push(CheckboxField::create('SubmitToGitHub', 'Create GitHub issue?'));
+        }
         
         return $form;
-        
     }
     
     /*
      * creates a new task for the current page
      */
-    public function SaveTask($data, $form) {
-        
+    public function SaveTask($data, $form)
+    {
+        // make sure the user is logged in
         if ($member = Security::getCurrentUser()) {
-        
+
+            // get the current site config
+            $currentSiteConfig = SiteConfig::current_site_config();
+            
+            // make sure it's set to submut to github
+            if (array_key_exists('SubmitToGitHub', $data)) {
+                // create an issue - if it's enabled
+                if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
+                    $this->createGitIssue(
+                        $currentSiteConfig->GithubUser,
+                        $currentSiteConfig->GithubRepo,
+                        $data['Title'],
+                        $data['Description']
+                    );
+                }
+            }
+
             //create a new task for this page
             $new = Task::create();
             $new->Title = $data['Title'];
