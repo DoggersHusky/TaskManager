@@ -123,6 +123,7 @@ class TaskManagerExtension extends DataExtension
             $currentSiteConfig = SiteConfig::current_site_config();
             
             // make sure it's set to submut to github
+            //@todo the description and title should be escaped
             if (array_key_exists('SubmitToGitHub', $data)) {
                 // create an issue - if it's enabled
                 if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
