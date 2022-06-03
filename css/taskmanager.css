@@ -1,5 +1,5 @@
 .tasks-container {
-    display: block;
+    display: flex;
     box-sizing: border-box;
     position: fixed;
     top: 100px;
@@ -10,11 +10,11 @@
 .tasks-container .new-task,
 .tasks-container .all-tasks,
 .tasks-container .tasks {
-    position: relative;
-    top: 0px;
+    /* position: relative;
+    top: 0px; */
     width: 0px;
     height: 550px;
-    float: right;
+    /* float: right; */
     box-sizing: border-box;
     overflow-y: hidden !important;
     overflow-x: hidden !important;
@@ -32,21 +32,18 @@
     border-color: black;
 }
 
-/* .tasks-container .all-tasks {
-    position: relative;
-    top: 0px;
-    display: none;
-    width: 325px;
-    height: 500px;
-    float: left;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    padding: 5px 10px 15px 10px;
-    overflow-y: scroll !important;
-} */
+.tasks-container .task-button-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks-container .task-button-holder > div {
+    align-self: flex-start;
+}
+
+.tasks-container .task-holder {
+    display: flex;
+}
 
 .tasks-container .tasks-toggle:hover,
 .tasks-container .new-task-toggle:hover,
