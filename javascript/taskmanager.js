@@ -70,8 +70,12 @@
                         $.trim(target.text()) +
                         '")'
                 );
+                
                 //update target element
-                targetElement = target.get(0).nodeName.toLowerCase() + eleClass;
+                targetElement = target.get(0).nodeName.toLowerCase() + eleClass  +
+                ':contains("' +
+                $.trim(target.text()) +
+                '")';
 
                 //get all the parents of the element so we make sure we are targeting the correct element
                 $(element)
