@@ -124,6 +124,7 @@ class TaskManagerExtension extends DataExtension
             
             // make sure it's set to submut to github
             //@todo the description and title should be escaped
+            //@todo the page link should also be included
             if (array_key_exists('SubmitToGitHub', $data)) {
                 // create an issue - if it's enabled
                 if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
