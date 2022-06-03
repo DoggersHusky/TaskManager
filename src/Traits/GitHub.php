@@ -83,7 +83,7 @@ trait GitHub
         // milestone id
         $mID = $milestoneID ? '"milestone":' . $milestoneID . ',' : '';
 
-        // @todo the milestone id should be an option on the form
+        // @todo the label should be selectable on the form
         $this->sendRequest(
             "repos/$authUser/$repo/issues", 
             'POST', 
