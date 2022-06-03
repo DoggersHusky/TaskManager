@@ -119,6 +119,13 @@ trait GitHub
      */
     public function getGitIssues(string $authUser, string $repo)
     {
-        
+    }
+
+    /**
+     * @todo get a list of git issues.
+     * https://docs.github.com/en/rest/issues/labels#list-labels-for-a-repository
+     */
+    public function getGitLabels(string $authUser, string $repo)
+    {
     }
 }
