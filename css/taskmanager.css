@@ -10,11 +10,8 @@
 .tasks-container .new-task,
 .tasks-container .all-tasks,
 .tasks-container .tasks {
-    /* position: relative;
-    top: 0px; */
     width: 0px;
     height: 550px;
-    /* float: right; */
     box-sizing: border-box;
     overflow-y: hidden !important;
     overflow-x: hidden !important;
@@ -39,6 +36,7 @@
 
 .tasks-container .task-button-holder > div {
     align-self: flex-start;
+    width: 60px;
 }
 
 .tasks-container .task-holder {
