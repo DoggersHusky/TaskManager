@@ -5,9 +5,9 @@
 <% require javascript("buckleshusky/taskmanager: javascript/taskmanager.js") %>
 <% require css("buckleshusky/taskmanager: css/taskmanager.css") %>
 <div class="tasks-container">
-    <div class="new-task-toggle toggle" data-target="new-task"></div>
-    <div class="all-tasks-toggle toggle" data-target="all-tasks"></div>
-    <div class="tasks-toggle toggle" data-target="tasks"></div>
+    <div class="new-task-toggle toggle" data-target="new-task">New</div>
+    <div class="all-tasks-toggle toggle" data-target="all-tasks">All</div>
+    <div class="tasks-toggle toggle" data-target="tasks">Tasks</div>
     <div class="new-task">
         
         <div class="element-selector">
@@ -81,5 +81,4 @@
             <% end_if %>
         <% end_with %>
     </div>
-    
 </div>

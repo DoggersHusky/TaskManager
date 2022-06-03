@@ -7,37 +7,32 @@
     z-index: 9999999;
 }
 
+.tasks-container .new-task,
+.tasks-container .all-tasks,
 .tasks-container .tasks {
-    display: none;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.9);
-    width: 325px;
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    height: 500px;
-    overflow-y: scroll !important;
     position: relative;
     top: 0px;
-}
-
-.tasks-container .new-task {
-    position: relative;
-    top: 0px;
-    display: none;
-    width: 325px;
+    width: 0px;
     height: 550px;
-    float: left;
+    float: right;
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    padding: 5px 10px 15px 10px;
-    overflow-y: auto !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
 }
 
-.tasks-container .all-tasks {
+.tasks-container .new-task.open,
+.tasks-container .all-tasks.open,
+.tasks-container .tasks.open {
+    width: 325px;
+    overflow-y: auto !important;
+    padding: 5px 10px 15px 10px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: black;
+}
+
+/* .tasks-container .all-tasks {
     position: relative;
     top: 0px;
     display: none;
@@ -51,32 +46,7 @@
     border-style: solid;
     padding: 5px 10px 15px 10px;
     overflow-y: scroll !important;
-}
-
-.tasks-container .tasks-toggle {
-    display: block;
-    width: 50px;
-    height: 100px;
-    position: absolute;
-    left: -50px;
-    cursor: pointer;
-    background-image: url(../images/button.png);
-    background-position-x: 0px;
-    top: 200px;
-}
-
-.tasks-container .all-tasks-toggle {
-    display: block;
-    width: 50px;
-    height: 100px;
-    position: absolute;
-    left: -50px;
-    cursor: pointer;
-    background-image: url(../images/button.png);
-    background-position-x: 0px;
-    background-position-y: -200px;
-    top: 100px;
-}
+} */
 
 .tasks-container .tasks-toggle:hover,
 .tasks-container .new-task-toggle:hover,
@@ -88,16 +58,29 @@
     filter: brightness(110%);
 }
 
-.tasks-container .new-task-toggle {
-    display: block;
-    width: 50px;
-    height: 100px;
-    position: absolute;
-    left: -50px;
+.tasks-container .new-task-toggle,
+.tasks-container .tasks-toggle,
+.tasks-container .all-tasks-toggle {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #008a00;
+    border-color: #008a00;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.3846rem 0.7692rem;
+    line-height: 1.5384;
+    border-radius: 0.23rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    position: relative;
     cursor: pointer;
-    background-image: url(../images/button.png);
-    background-position-x: 0px;
-    background-position-y: -100px;
 }
 
 .tasks-container .task {

@@ -6,17 +6,8 @@
         $(".tasks-container .toggle").click(function() {
             var target = "." + $(this).attr("data-target");
             var parent = $(this);
-
-            $(target).toggle("slow", function() {
-                //check to see if this is open or closed
-                if ($(this).hasClass("open")) {
-                    $(parent).css("background-position-x", "0px");
-                    $(this).removeClass("open");
-                } else {
-                    $(parent).css("background-position-x", "-50px");
-                    $(this).addClass("open");
-                }
-            });
+            
+            $(target).toggleClass('open');
         });
 
         /*
