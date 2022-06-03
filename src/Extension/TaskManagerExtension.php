@@ -2,10 +2,12 @@
 
 namespace BucklesHusky\TaskManager\Extension;
 
+use BucklesHusky\TaskManager\Model\Milestone;
 use BucklesHusky\TaskManager\Model\Task;
 use BucklesHusky\TaskManager\Traits\GitHub;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
@@ -97,6 +99,13 @@ class TaskManagerExtension extends DataExtension
         // if github integration is enabled push the checkbox
         if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
             $form->Fields()->push(CheckboxField::create('SubmitToGitHub', 'Create GitHub issue?'));
+
+            // add dropdown if we have milestones
+            $milestones = Milestone::get()->filter('MilestonesLastUpdatedID', $currentSiteConfig->MilestonesLastUpdatedID);
+            if ($milestones->count() > 0) {
+                $form->Fields()->push(DropdownField::create('milestone', 'Milestone', $milestones->map('Number', 'Title')));
+            }
+            
         }
         
         return $form;

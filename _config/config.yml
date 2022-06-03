@@ -22,3 +22,7 @@ SilverStripe\CMS\Controllers\CMSPageEditController:
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - BucklesHusky\TaskManager\Extension\SiteConfigExtension
+
+SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+  extensions:
+    - BucklesHusky\TaskManager\Extension\SiteConfigLeftAndMainExtension

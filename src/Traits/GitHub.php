@@ -12,7 +12,14 @@ use Exception;
 
 trait GitHub 
 {
-    
+    /**
+     * Makes a call to the GitHub api
+     * @param string $endpoint API Endpoint url for example repos/octocat/hello-world/pulls/42/
+     * @param string $method HTTP Method for the request
+     * @param string $body JSON Body to send to the api
+     * @param array $params Query string parameters to send to the api
+     * @return \Psr\Http\Message\ResponseInterface|bool Boolean false on curl error or ResponseInterface response from GitHub
+     */
     public function sendRequest(string $endpoint, string $method, string $body = null, array $params = null)
     {
         $gitToken = Environment::getEnv('GITHUB_TOKEN');
@@ -90,7 +97,7 @@ trait GitHub
      */
     public function getMilestones(string $authUser, string $repo)
     {
-        $this->sendRequest(
+        return $this->sendRequest(
             "repos/$authUser/$repo/milestones", 
             'GET'
         );

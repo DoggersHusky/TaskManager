@@ -4,8 +4,10 @@ namespace BucklesHusky\TaskManager\Extension;
 
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class SiteConfigExtension extends DataExtension
 {
@@ -14,6 +16,7 @@ class SiteConfigExtension extends DataExtension
         'GithubUser' => 'Varchar(255)',
         'GithubRepo' => 'Varchar(255)',
         'AssignUserToIssue' => 'Boolean',
+        'MilestonesLastUpdatedID' => 'Int',
     ];
 
     /**
@@ -52,5 +55,25 @@ class SiteConfigExtension extends DataExtension
         );
 
         return $fields;
+    }
+
+    /**
+     * update cms actions
+     */
+    public function updateCMSActions($actions)
+    {
+        // get the current site config
+        $currentSiteConfig = SiteConfig::current_site_config();
+
+        if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
+
+            // add button to update milestones
+            $actions->push(
+                    FormAction::create(
+                    'updateMileStones',
+                    'Update milestones'
+                )
+            );
+        }
     }
 }
