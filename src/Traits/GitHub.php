@@ -74,7 +74,7 @@ trait GitHub
      * @param string|null $pageLink the link to the page
      * @return void
      */
-    public function createGitIssue(string $authUser, string $repo, string $issueTitle, string $issueContent, string $pageLink = null)
+    public function createGitIssue(string $authUser, string $repo, string $issueTitle, string $issueContent, string $milestoneID = null, string $pageLink = null)
     {
         // current site config
         $siteConfig = SiteConfig::current_site_config();
@@ -82,11 +82,14 @@ trait GitHub
         // should the user be assigned
         $assign =  $siteConfig->AssignUserToIssue ? '"assignees":["' . $authUser. '"],' : '';
 
+        // milestone id
+        $mID = $milestoneID ? '"milestone":' . $milestoneID . ',' : '';
+
         // @todo the milestone id should be an option on the form
         $this->sendRequest(
             "repos/$authUser/$repo/issues", 
             'POST', 
-            '{"title":"' . $issueTitle . '","body":"' . $issueContent . '",' . $assign . '"milestone":1,"labels":["bug"]}'
+            '{"title":"' . $issueTitle . '","body":"' . $issueContent . '",' . $assign . $mID . '"labels":["bug"]}'
         );
     }
 

@@ -103,7 +103,7 @@ class TaskManagerExtension extends DataExtension
             // add dropdown if we have milestones
             $milestones = Milestone::get()->filter('MilestonesLastUpdatedID', $currentSiteConfig->MilestonesLastUpdatedID);
             if ($milestones->count() > 0) {
-                $form->Fields()->push(DropdownField::create('milestone', 'Milestone', $milestones->map('Number', 'Title')));
+                $form->Fields()->push(DropdownField::create('milestone', 'Milestone', $milestones->map('Number', 'Title'))->setEmptyString('-- select a milestone --'));
             }
             
         }
@@ -126,11 +126,15 @@ class TaskManagerExtension extends DataExtension
             if (array_key_exists('SubmitToGitHub', $data)) {
                 // create an issue - if it's enabled
                 if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
+                    // get the milestone if selected
+                    $milestone = array_key_exists('milestone', $data) ? $data['milestone'] : '';
+
                     $this->createGitIssue(
                         $currentSiteConfig->GithubUser,
                         $currentSiteConfig->GithubRepo,
                         $data['Title'],
-                        $data['Description']
+                        $data['Description'],
+                        $milestone
                     );
                 }
             }

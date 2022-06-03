@@ -3,8 +3,8 @@
 namespace BucklesHusky\TaskManager\Model;
 
 use SilverStripe\ORM\DataObject;
-use Page;
 use SilverStripe\Security\Member;
+use Page;
 
 class Task extends DataObject {
     
@@ -15,6 +15,7 @@ class Task extends DataObject {
         'Element' => 'Text'
     ];
     
+    //@todo this should have one milestone
     private static $has_one = [
         'Page' => Page::class,
         'Member' => Member::class
