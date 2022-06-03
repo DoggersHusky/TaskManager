@@ -58,8 +58,6 @@ trait GitHub
             Injector::inst()->get(LoggerInterface::class)->debug('Did not receive a response from the GitHub API in ' . $curlOptions['CURLOPT_TIMEOUT'] . ' seconds');
             return false;
         }
-        
-        // var_dump($response->getBody()->getContents()); exit;
 
         return $response;
     }
