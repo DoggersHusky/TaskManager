@@ -11,7 +11,7 @@
 .tasks-container .all-tasks,
 .tasks-container .tasks {
     width: 0px;
-    height: 550px;
+    height: calc(100% - 100px);
     box-sizing: border-box;
     overflow-y: hidden !important;
     overflow-x: hidden !important;
@@ -53,9 +53,7 @@
     filter: brightness(110%);
 }
 
-.tasks-container .new-task-toggle,
-.tasks-container .tasks-toggle,
-.tasks-container .all-tasks-toggle {
+.tasks-container .toggle {
     display: inline-block;
     font-weight: 400;
     color: #fff;
@@ -67,15 +65,21 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid transparent;
+    border-bottom: 1px solid black;
     padding: 0.3846rem 0.7692rem;
     line-height: 1.5384;
-    border-radius: 0.23rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
     position: relative;
     cursor: pointer;
+}
+
+.tasks-container .toggle.active {
+    background-color: #36ac46;
+    cursor: unset;
 }
 
 .tasks-container .task {

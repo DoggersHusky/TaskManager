@@ -4,9 +4,15 @@
          * handles opening and closing of the tabs
          */
         $(".tasks-container .toggle").click(function() {
-            var target = "." + $(this).attr("data-target");
-            var parent = $(this);
+            let parent = $(this);
+            let target = "." + parent.attr("data-target");
+
+            // remove the open class
+            $('.task-holder .open').removeClass('open');
+            $('.tasks-container .toggle').removeClass('active');
             
+            // add active classes
+            parent.addClass('active');
             $(target).toggleClass('open');
         });
 
