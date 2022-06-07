@@ -88,7 +88,7 @@ trait GitHub
         $issueTitle =  preg_replace('/[^A-Za-z0-9\-\' ]/', '', $issueTitle);
 
         // @todo the label should be selectable on the form
-        $this->sendRequest(
+        return $this->sendRequest(
             "repos/$authUser/$repo/issues", 
             'POST', 
             '{"title":"' . $issueTitle . '","body":"' . $issueContent . '",' . $assign . $mID . '"labels":["bug"]}'
