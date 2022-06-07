@@ -33,8 +33,8 @@ class TaskManagerExtension extends DataExtension
     /*
      * makes the taskmanager
      */
-    public function TaskManager() {
-        
+    public function TaskManager()
+    {
         //make sure the user is logged in as admin
         if (!Permission::check('ADMIN')) {
             return false;
@@ -68,7 +68,8 @@ class TaskManagerExtension extends DataExtension
     /*
      * get if jquery needs to be included
      */
-    public function getIncludeJuery(){
+    public function getIncludeJuery()
+    {
         return (boolean)Config::inst()->get('TaskManager', 'JQueryInclude');
     }
     
