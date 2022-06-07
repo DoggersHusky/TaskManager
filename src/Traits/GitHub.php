@@ -10,7 +10,7 @@ use SilverStripe\Core\Injector\Injector;
 use SilverStripe\SiteConfig\SiteConfig;
 use Exception;
 
-trait GitHub 
+trait GitHub
 {
     /**
      * Makes a call to the GitHub api
@@ -41,7 +41,7 @@ trait GitHub
         $curlOptions = [
             CURLOPT_CONNECTTIMEOUT => 2,
             CURLOPT_TIMEOUT => 17,
-            CURLOPT_SSL_VERIFYPEER => !Director::isDev()
+            CURLOPT_SSL_VERIFYPEER => !Director::isDev(),
         ];
 
         try {
@@ -78,32 +78,32 @@ trait GitHub
         $siteConfig = SiteConfig::current_site_config();
 
         // should the user be assigned
-        $assign =  $siteConfig->AssignUserToIssue ? '"assignees":["' . $authUser. '"],' : '';
+        $assign = $siteConfig->AssignUserToIssue ? '"assignees":["' . $authUser. '"],' : '';
 
         // milestone id
         $mID = $milestoneID ? '"milestone":' . $milestoneID . ',' : '';
 
         // clean the input to pass to github
-        $issueContent = preg_replace('/[^A-Za-z0-9\-<>\' ]/', '', preg_replace( "/\r|\n/", "<br>", $issueContent));
-        $issueTitle =  preg_replace('/[^A-Za-z0-9\-\' ]/', '', $issueTitle);
+        $issueContent = preg_replace('/[^A-Za-z0-9\-<>\' ]/', '', preg_replace("/\r|\n/", "<br>", $issueContent));
+        $issueTitle = preg_replace('/[^A-Za-z0-9\-\' ]/', '', $issueTitle);
 
         // @todo the label should be selectable on the form
         return $this->sendRequest(
-            "repos/$authUser/$repo/issues", 
-            'POST', 
+            "repos/$authUser/$repo/issues",
+            'POST',
             '{"title":"' . $issueTitle . '","body":"' . $issueContent . '",' . $assign . $mID . '"labels":["bug"]}'
         );
     }
 
     /**
-     * @todo use to get the milestones for the form. 
+     * @todo use to get the milestones for the form.
      * This should be used to save in the cms
      * https://docs.github.com/en/rest/issues/milestones
      */
     public function getMilestones(string $authUser, string $repo)
     {
         return $this->sendRequest(
-            "repos/$authUser/$repo/milestones", 
+            "repos/$authUser/$repo/milestones",
             'GET'
         );
     }
@@ -112,7 +112,7 @@ trait GitHub
      * https://docs.github.com/en/rest/issues/milestones#create-a-milestone
      */
     public function createMilestone()
-    { 
+    {
     }
 
     /**
