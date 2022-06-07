@@ -135,21 +135,23 @@ class TaskManagerExtension extends DataExtension
                         $milestone
                     );
                 }
-            }
 
-            //create a new task for this page
-            $new = Task::create();
-            $new->Title = $data['Title'];
-            $new->Description = $data['Description'];
-            if ($data['Element']) {
-                $new->Element = $data['Element'];
-            }
-            $new->PageID = $this->owner->ID;
-            //the user that create the task
-            $new->MemberID = $member->ID;
-            $new->write();
+                $form->sessionMessage('Issue was submitted to GitHub.', 'good');
+            } else {
+                //create a new task for this page
+                $new = Task::create();
+                $new->Title = $data['Title'];
+                $new->Description = $data['Description'];
+                if ($data['Element']) {
+                    $new->Element = $data['Element'];
+                }
+                $new->PageID = $this->owner->ID;
+                //the user that create the task
+                $new->MemberID = $member->ID;
+                $new->write();
 
-            $form->sessionMessage('Good job on submitting this form fella', 'good');
+                $form->sessionMessage('Issue created successfully.', 'good');
+            }
 
             return $this->owner->redirectBack();
         }
