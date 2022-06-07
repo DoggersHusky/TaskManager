@@ -127,6 +127,7 @@ class TaskManagerExtension extends DataExtension
                     // get the milestone if selected
                     $milestone = array_key_exists('milestone', $data) ? $data['milestone'] : '';
 
+                    //@todo would be nice to save a reference to the cms, but need a way to clear it when the issue is done.
                     $this->createGitIssue(
                         $currentSiteConfig->GithubUser,
                         $currentSiteConfig->GithubRepo,
