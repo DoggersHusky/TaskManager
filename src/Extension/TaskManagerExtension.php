@@ -41,28 +41,25 @@ class TaskManagerExtension extends DataExtension
         }
         
         //the data for the taskmanager
-        $data = array(
-            'PageTasks' => $this->owner->Tasks()->filter(array(
-                'Complete'=>'0'
-            )),
+        $data = [
+            'PageTasks' => $this->owner->Tasks()->filter([
+                'Complete' => '0',
+            ]),
             'PageTotalTasks' => $this->owner->Tasks()->count(),
-            'PageCompletedTasks' => $this->owner->Tasks()->filter(array(
-                'Complete'=>'1'
-            ))->count(),
-            
-            
-            'AllTasks' => Task::get()->filter(array(
-                'Complete'=>'0'
-            )),
+            'PageCompletedTasks' => $this->owner->Tasks()->filter([
+                'Complete' => '1',
+            ])->count(),
+            'AllTasks' => Task::get()->filter([
+                'Complete' => '0',
+            ]),
             'TotalTasks' => Task::get()->count(),
-            'CompletedTasks'=> Task::get()->filter(array(
-                'Complete'=>'1'
-            ))->count()
-        );
+            'CompletedTasks' => Task::get()->filter([
+                'Complete' => '1',
+            ])->count()
+        ];
         
         $page = $this->owner->customise(['TaskManager' => $data]);
         return $page->renderWith('TaskManager\\TaskManager');
-        
     }
     
     /*
@@ -70,11 +67,11 @@ class TaskManagerExtension extends DataExtension
      */
     public function getIncludeJuery()
     {
-        return (boolean)Config::inst()->get('TaskManager', 'JQueryInclude');
+        return (boolean) Config::inst()->get('TaskManager', 'JQueryInclude');
     }
     
     /*
-     * generates a form to display on the front end. 
+     * generates a form to display on the front end.
      * This form allows users to add a new task
      */
     public function TaskManagerForm()
@@ -83,19 +80,19 @@ class TaskManagerExtension extends DataExtension
         $currentSiteConfig = SiteConfig::current_site_config();
 
         $form = Form::create(
-                        $this->owner,
-                        __FUNCTION__,
-                        FieldList::create(
-                            ReadonlyField::create('Ele','Element'),
-                            TextField::create('Title', 'Title')->setDescription('Use a couple of words to summarize the issue/change'),
-                            TextareaField::create('Description','Description')->setDescription('Leave a detailed description of the issue/change here'),
-                            HiddenField::create('Element','Element')
-                        ),
-                        FieldList::create(
-                            FormAction::create('SaveTask', 'Save')
-                        ),
-                        RequiredFields::create('Title','Description')
-                    );
+            $this->owner,
+            __FUNCTION__,
+            FieldList::create(
+                ReadonlyField::create('Ele', 'Element'),
+                TextField::create('Title', 'Title')->setDescription('Use a couple of words to summarize the issue/change'),
+                TextareaField::create('Description', 'Description')->setDescription('Leave a detailed description of the issue/change here'),
+                HiddenField::create('Element', 'Element')
+            ),
+            FieldList::create(
+                FormAction::create('SaveTask', 'Save')
+            ),
+            RequiredFields::create('Title', 'Description')
+        );
 
         // if github integration is enabled push the checkbox
         if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
@@ -106,7 +103,6 @@ class TaskManagerExtension extends DataExtension
             if ($milestones->count() > 0) {
                 $form->Fields()->push(DropdownField::create('milestone', 'Milestone', $milestones->map('Number', 'Title'))->setEmptyString('-- select a milestone --'));
             }
-            
         }
         
         return $form;
@@ -119,7 +115,6 @@ class TaskManagerExtension extends DataExtension
     {
         // make sure the user is logged in
         if ($member = Security::getCurrentUser()) {
-
             // get the current site config
             $currentSiteConfig = SiteConfig::current_site_config();
             
@@ -163,8 +158,8 @@ class TaskManagerExtension extends DataExtension
     /*
      * mark a task as completed
      */
-    public function CompleteTask() {
-        
+    public function CompleteTask()
+    {
         //make sure the user is logged in as admin
         if (Permission::check('ADMIN')) {
             $item = Task::get()->byID($this->owner->request->param('ID'));
@@ -174,6 +169,4 @@ class TaskManagerExtension extends DataExtension
         
         return $this->owner->redirectBack();
     }
-    
-    
 }
