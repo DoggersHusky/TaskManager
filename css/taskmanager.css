@@ -20,6 +20,7 @@
     overflow-y: auto !important;
     padding: 5px 10px 15px 10px;
     background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #c1cad9;
 }
 
 .tasks-container .task-button-holder {
@@ -95,28 +96,32 @@
     padding-left: 10px;
 }
 
-.tasks-container .element-selector {
-    display: block;
-}
-
 .tasks-container .btn-toolbar {
     overflow: hidden;
 }
 
-.tasks-container .element-selector span,
+.tasks-container .element-selector,
 .tasks-container .ele span,
 .tasks-container .ele a,
 .tasks-container form input[type="submit"] {
-    background-color: #00d2ff;
-    color: white;
-    display: block;
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #39b54a;
     text-align: center;
-    line-height: 34px;
-    font-size: 123%;
-    font-weight: bold;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-bottom: 1px solid #33a343;
+    padding: 0.3846rem 0.7692rem;
+    line-height: 1.5384;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    position: relative;
     cursor: pointer;
-    width: 100%;
-    border: none;
 }
 
 .tasks-container .ele a {
