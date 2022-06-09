@@ -8,11 +8,11 @@
             let target = "." + parent.attr("data-target");
 
             // remove the open class
-            $('.task-holder .open').removeClass('open');
-            $('.tasks-container .toggle').removeClass('active');
+            $('.task-holder .open').not(target).removeClass('open');
+            $('.tasks-container .toggle.active').not(parent).removeClass('active');
             
             // add active classes
-            parent.addClass('active');
+            parent.toggleClass('active');
             $(target).toggleClass('open');
         });
 

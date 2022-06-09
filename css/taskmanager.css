@@ -7,26 +7,19 @@
     z-index: 9999999;
 }
 
-.tasks-container .new-task,
-.tasks-container .all-tasks,
-.tasks-container .tasks {
+.tasks-container .task-holder > div {
     width: 0px;
-    height: calc(100% - 100px);
+    height: calc(100vh - 100px);
     box-sizing: border-box;
     overflow-y: hidden !important;
     overflow-x: hidden !important;
 }
 
-.tasks-container .new-task.open,
-.tasks-container .all-tasks.open,
-.tasks-container .tasks.open {
+.tasks-container .task-holder > .open{
     width: 325px;
     overflow-y: auto !important;
     padding: 5px 10px 15px 10px;
-    border-width: 1px;
-    border-style: solid;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-color: black;
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .tasks-container .task-button-holder {
@@ -43,29 +36,18 @@
     display: flex;
 }
 
-.tasks-container .tasks-toggle:hover,
-.tasks-container .new-task-toggle:hover,
-.tasks-container .all-tasks-toggle:hover,
-.tasks-container .ele span:hover,
-.tasks-container .ele a:hover,
-.tasks-container .element-selector span:hover,
-.tasks-container form input[type="submit"]:hover {
-    filter: brightness(110%);
-}
-
 .tasks-container .toggle {
     display: inline-block;
     font-weight: 400;
     color: #fff;
-    background-color: #008a00;
-    border-color: #008a00;
+    background-color: #39b54a;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #33a343;
     padding: 0.3846rem 0.7692rem;
     line-height: 1.5384;
     border-top-left-radius: 0.5rem;
@@ -77,9 +59,9 @@
     cursor: pointer;
 }
 
+.tasks-container .toggle:hover,
 .tasks-container .toggle.active {
-    background-color: #36ac46;
-    cursor: unset;
+    background-color: #2d8b3a;
 }
 
 .tasks-container .task {
