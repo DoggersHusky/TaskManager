@@ -6,9 +6,9 @@
 <% require css("buckleshusky/taskmanager: css/taskmanager.css") %>
 <div class="tasks-container">
     <div class="task-button-holder">
-        <div class="new-task-toggle toggle" data-target="new-task">New</div>
-        <div class="all-tasks-toggle toggle" data-target="all-tasks">All</div>
-        <div class="tasks-toggle toggle" data-target="tasks">Tasks</div>
+        <div class="new-task-toggle toggle" data-target="new-task">New Task</div>
+        <div class="tasks-toggle toggle" data-target="tasks">Page's Tasks</div>
+        <div class="all-tasks-toggle toggle" data-target="all-tasks">All Tasks</div>
     </div>
     <div class="task-holder">
         <div class="new-task">
