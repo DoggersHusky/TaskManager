@@ -17,18 +17,17 @@
         });
 
         /*
-         * close all open tabs
+         * hide the open tabs so we can select everything
          */
-        function closeAllOpenTabs() {
-            $(".tasks-container .toggle").each(function() {
-                //get the target tab
-                var target = "." + $(this).attr("data-target");
-                //check to see if it is open
-                if ($(target).hasClass("open")) {
-                    //close the tab
-                    $(this).click();
-                }
-            });
+        function hideTaskManager() {
+            $('.tasks-container').css('display', 'none');
+        }
+
+        /**
+         * show the task manager
+         */
+        function showTaskManager() {
+            $('.tasks-container').css('display', '');
         }
 
         /*
@@ -40,8 +39,8 @@
                 e.preventDefault();
             });
 
-            //close all open tabs
-            closeAllOpenTabs();
+            //hide task manager
+            hideTaskManager();
 
             var myExampleClickHandler = function(element) {
                 //an array to store the selected element and parents
@@ -125,8 +124,8 @@
                     }
                 }
 
-                //reopen new tab
-                $(".new-task-toggle").click();
+                //show hidden task manager
+                showTaskManager();
             };
 
             var myDomOutline = DomOutline({ onClick: myExampleClickHandler });
