@@ -122,6 +122,15 @@
         -webkit-box-shadow 0.15s ease-in-out;
     position: relative;
     cursor: pointer;
+    border-radius: .23rem !important;
+    border: 1px solid #368b39;
+}
+
+.tasks-container .element-selector:hover,
+.tasks-container .ele span:hover,
+.tasks-container .ele a:hover,
+.tasks-container form input[type="submit"]:hover {
+    background-color: #2d8b3a;
 }
 
 .tasks-container .ele a {
