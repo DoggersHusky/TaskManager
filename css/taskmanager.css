@@ -15,7 +15,7 @@
     overflow-x: hidden !important;
 }
 
-.tasks-container .task-holder > .open{
+.tasks-container .task-holder > .open {
     width: 325px;
     overflow-y: auto !important;
     padding: 5px 10px 15px 10px;
@@ -30,7 +30,9 @@
 
 .tasks-container .task-button-holder > div {
     align-self: flex-start;
-    width: 80px;
+    width: 89px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .tasks-container .task-holder {
@@ -49,7 +51,7 @@
     -ms-user-select: none;
     user-select: none;
     border-bottom: 1px solid #33a343;
-    padding: 0.3846rem 0.7692rem;
+    padding: 6px 12px;
     line-height: 1.5384;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
@@ -67,10 +69,9 @@
 
 .tasks-container .task {
     padding: 5px 10px 15px 10px;
-    border-bottom-color: black;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+    border-bottom: 1px solid #c1cad9;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .tasks-container form {
@@ -138,27 +139,27 @@
 }
 
 .tasks-container .complete {
-    width: 25%;
-    padding-right: 10px;
+    width: 30px;
+    padding-right: 15px;
 }
 
 .tasks-container .task-info {
-    width: 75%;
+    width: calc(100% - 30px);
 }
 
 .tasks-container .complete a {
     background-image: url(../images/checkbox.png);
     background-position-x: 0px;
     display: block;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     margin-right: 5px;
     cursor: pointer;
     background-position-x: 0px;
 }
 
 .tasks-container .complete a:hover {
-    background-position-x: -60px;
+    background-position-x: -30px;
 }
 
 .tasks-container form .field.text,

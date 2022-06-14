@@ -12,13 +12,11 @@
     </div>
     <div class="task-holder">
         <div class="new-task">
-            
             <div class="element-selector">
                 <span>Select Element</span>
             </div>
             
             $TaskManagerForm
-
         </div>
         <div class="all-tasks">
             <% with $TaskManager %>

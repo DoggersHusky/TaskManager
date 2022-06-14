@@ -168,7 +168,7 @@
          */
         $(".tasks-container .complete a").click(function() {
             //show the green checkmark
-            $(this).css("background-position-x", "-120px");
+            $(this).css("background-position-x", "-60px");
         });
     });
 })(jQuery);
