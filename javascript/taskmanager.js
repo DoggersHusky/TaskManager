@@ -1,5 +1,20 @@
 (function($) {
     $(document).ready(function() {
+
+        if(window.location.hash) {
+            let hash = window.location.hash.substring(1); 
+            
+            // if the hash is taskmanager-open
+            if (hash === 'taskmanager-open') {
+                // open task manager
+                $('.new-task').addClass('open');
+                $('.new-task-toggle.toggle').addClass('active');
+
+                // remove hash
+                history.pushState("", document.title, window.location.pathname + window.location.search);
+            }
+        }
+
         /*
          * handles opening and closing of the tabs
          */

@@ -5,6 +5,7 @@ namespace BucklesHusky\TaskManager\Extension;
 use BucklesHusky\TaskManager\Model\Milestone;
 use BucklesHusky\TaskManager\Model\Task;
 use BucklesHusky\TaskManager\Traits\GitHub;
+use SilverStripe\Control\Controller;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
@@ -154,7 +155,12 @@ class TaskManagerExtension extends DataExtension
                 $form->sessionMessage('Issue created successfully.', 'good');
             }
 
-            return $this->owner->redirectBack();
+            return $this->owner->redirect(
+                Controller::join_links(
+                    $this->owner->Link(),
+                    '#taskmanager-open'
+                )
+            );
         }
     }
     
