@@ -85,15 +85,11 @@
     box-sizing: border-box;
 }
 
-.tasks-container .task .date {
+.tasks-container .date {
     font-size: 75%;
 }
 
-.tasks-container .tasks .desc {
-    padding-left: 10px;
-}
-
-.tasks-container .tasks .desc {
+.tasks-container .desc {
     padding-left: 10px;
 }
 
@@ -192,19 +188,20 @@
 
 .task-manager-select {
     position: relative !important;
-    border-color: yellow !important;
+    border-color: rgb(255, 0, 0) !important;
     border-width: 4px !important;
     border-style: solid !important;
     padding: 0px !important;
+    background-color: rgb(255, 0, 0) !important;
 }
 
-.task-manager-select:after {
+/* .task-manager-select:after {
     position: absolute !important;
     z-index: 99999 !important;
     display: block !important;
     content: " " !important;
     width: 100% !important;
     height: 100% !important;
-    background-color: rgba(255, 255, 0, 0.8) !important;
+    background-color: rgb(255, 0, 0) !important;
     top: 0px;
-}
+} */

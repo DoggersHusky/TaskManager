@@ -28,7 +28,7 @@
                             <div class="task-info">
                                 <div><strong>$Title</strong></div>
                                 <div class="date">
-                                    $Member.FirstName - $Created.Nice
+                                    <strong>$Member.FirstName</strong> - $Created.Nice
                                 </div>
                                 <div class="desc">
                                     $Description
