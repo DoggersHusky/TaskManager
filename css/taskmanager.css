@@ -111,7 +111,6 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border-bottom: 1px solid #33a343;
     padding: 0.3846rem 0.7692rem;
     line-height: 1.5384;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
@@ -123,15 +122,31 @@
     border: 1px solid #368b39;
 }
 
+.tasks-container .ele span {
+    background-color: transparent;
+    border-color: #bebebe;
+    color: #bebebe;
+    font-weight: 600;
+}
+
 .tasks-container .element-selector:hover,
 .tasks-container .ele span:hover,
 .tasks-container .ele a:hover,
 .tasks-container form input[type="submit"]:hover {
     background-color: #2d8b3a;
+    border: 1px solid #368b39;
 }
 
 .tasks-container .ele a {
-    background-color: rosybrown;
+    background-color: transparent;
+    border-color: #bebebe;
+    color: #bebebe;
+    font-weight: 600;
+}
+
+.tasks-container .ele span:hover,
+.tasks-container .ele a:hover {
+    color: #fff;
 }
 
 .tasks-container .complete {
