@@ -158,7 +158,7 @@
     width: calc(100% - 30px);
 }
 
-.tasks-container .complete a {
+.tasks-container .complete a.complete-issue {
     background-image: url(../images/checkbox.png);
     background-position-x: 0px;
     display: block;
