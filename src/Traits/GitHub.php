@@ -52,10 +52,16 @@ trait GitHub
                     'curl' => $curlOptions,
                     'body' => $body,
                     'query' => $params,
+                    'http_errors' => false
                 ]
             );
         } catch (ConnectException $e) {
             Injector::inst()->get(LoggerInterface::class)->debug('Did not receive a response from the GitHub API in ' . $curlOptions['CURLOPT_TIMEOUT'] . ' seconds');
+            return false;
+        }
+
+        // something went wrong
+        if ($response->getStatusCode() != 200 && $response->getStatusCode() != 201) {
             return false;
         }
 
@@ -119,8 +125,12 @@ trait GitHub
      * @todo get a list of git issues.
      * https://docs.github.com/en/rest/issues/issues#list-repository-issues
      */
-    public function getGitIssues(string $authUser, string $repo)
+    public function getClosedGitIssues(string $authUser, string $repo)
     {
+        return $this->sendRequest(
+            "repos/$authUser/$repo/issues?state=closed",
+            'GET'
+        );
     }
 
     /**

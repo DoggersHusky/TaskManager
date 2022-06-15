@@ -24,7 +24,10 @@
                 <% if $AllTasks %>
                     <% loop $AllTasks.Sort(ID DESC) %>
                         <div class="task">
-                            <div class="complete"><a href="{$Top.Link}CompleteTask/$ID"></a></div>
+                            <% if $GitHubIssue %>
+                            <% else %>
+                                <div class="complete"><a href="{$Top.Link}CompleteTask/$ID"></a></div>
+                            <% end_if %>
                             <div class="task-info">
                                 <div><strong>$Title</strong></div>
                                 <div class="date">
@@ -59,7 +62,10 @@
                     <% loop $PageTasks.Sort(ID DESC) %>
                         <div class="task">
                             <div class="complete">
-                                <a href="{$Top.Link}CompleteTask/$ID"></a>
+                                <% if $GitHubIssue %>
+                                <% else %>
+                                    <a href="{$Top.Link}CompleteTask/$ID"></a>
+                                <% end_if %>
                             </div>
                             <div class="task-info">
                                 <div>

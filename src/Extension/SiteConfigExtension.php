@@ -81,6 +81,13 @@ class SiteConfigExtension extends DataExtension
                     'Update milestones'
                 )
             );
+
+            $actions->push(
+                FormAction::create(
+                    'updateIssues',
+                    'Update issues'
+                )
+            );
         }
     }
 }

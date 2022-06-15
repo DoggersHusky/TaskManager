@@ -18,6 +18,7 @@ use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
 use SilverStripe\SiteConfig\SiteConfig;
@@ -129,31 +130,55 @@ class TaskManagerExtension extends DataExtension
                     $milestone = array_key_exists('milestone', $data) ? $data['milestone'] : '';
 
                     //@todo would be nice to save a reference to the cms, but need a way to clear it when the issue is done.
-                    $this->createGitIssue(
+                    $createIssue = $this->createGitIssue(
                         $currentSiteConfig->GithubUser,
                         $currentSiteConfig->GithubRepo,
                         $data['Title'],
                         $data['Description'],
                         $milestone
                     );
-                }
 
-                $form->sessionMessage('Issue was submitted to GitHub.', 'good');
-            } else {
-                //create a new task for this page
-                $new = Task::create();
-                $new->Title = $data['Title'];
-                $new->Description = $data['Description'];
-                if ($data['Element']) {
-                    $new->Element = $data['Element'];
-                }
-                $new->PageID = $this->owner->ID;
-                //the user that create the task
-                $new->MemberID = $member->ID;
-                $new->write();
+                    // if we couldn't create the issue redirect back and show error
+                    if ($createIssue === false) {
+                        $form->sessionMessage('An error has occurred submitting to github. Double check your credentials.', ValidationResult::TYPE_ERROR);
+                        
+                        return $this->owner->redirect(
+                            Controller::join_links(
+                                $this->owner->Link(),
+                                '#taskmanager-open'
+                            )
+                        );
+                    }
 
-                $form->sessionMessage('Issue created successfully.', 'good');
+                    // get the details
+                    $createIssue = json_decode($createIssue->getBody()->getContents());
+                }
             }
+
+            //create a new task for this page
+            $new = Task::create();
+
+            $new->Title = $data['Title'];
+            $new->Description = $data['Description'];
+            
+            if ($data['Element']) {
+                $new->Element = $data['Element'];
+            }
+            $new->PageID = $this->owner->ID;
+            //the user that create the task
+            $new->MemberID = $member->ID;
+
+            // if it's a github issue note it
+            if (array_key_exists('SubmitToGitHub', $data)) {
+                $new->GitHubIssue = 1;
+                $new->GitHubID = $createIssue->id;
+                $new->GitHubLink = $createIssue->html_url;
+            }
+
+            // write
+            $new->write();
+
+            $form->sessionMessage('Issue created successfully.', 'good');
 
             return $this->owner->redirect(
                 Controller::join_links(

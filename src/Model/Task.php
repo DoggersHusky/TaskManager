@@ -6,13 +6,16 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Member;
 use Page;
 
-class Task extends DataObject {
-    
+class Task extends DataObject
+{
     private static $db = [
         'Title' => 'Text',
         'Description' => 'Text',
         'Complete' => 'Boolean',
-        'Element' => 'Text'
+        'Element' => 'Text',
+        'GitHubIssue' => 'Boolean',
+        'GitHubID' => 'Int',
+        'GitHubLink' => 'Varchar(2083)',
     ];
     
     //@todo this should have one milestone
