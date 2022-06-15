@@ -101,7 +101,7 @@ class TaskManagerExtension extends DataExtension
             $form->Fields()->push(CheckboxField::create('SubmitToGitHub', 'Create a GitHub issue?'));
 
             // add dropdown if we have milestones
-            $milestones = Milestone::get()->filter('MilestonesLastUpdatedID', $currentSiteConfig->MilestonesLastUpdatedID);
+            $milestones = Milestone::get()->filter('State', 'open');
             if ($milestones->count() > 0) {
                 $form->Fields()->push(DropdownField::create('milestone', 'Milestone', $milestones->map('Number', 'Title'))->setEmptyString('-- select a milestone --'));
             }

@@ -39,32 +39,26 @@ class SiteConfigLeftAndMainExtension extends DataExtension
 
             // get the content
             $milestones = json_decode($milestones->getBody()->getContents());
-            
-            //last updated
-            $lastUpdatedID = $currentSiteConfig->MilestonesLastUpdatedID + 1;
 
             // loop through the milestones
             foreach ($milestones as $milestone) {
                 $newOrOldMilestone = Milestone::get()->filter([
                     'Title' => $milestone->title,
-                    'Number' => $milestone->number,
+                    'GitHubID' => $milestone->id,
                 ])->first();
 
                 // if it doesn't exist create it
                 if (!$newOrOldMilestone) {
                     $newOrOldMilestone = Milestone::create();
                 }
-
+                
                 // write changes
                 $newOrOldMilestone->Title = $milestone->title;
                 $newOrOldMilestone->Number = $milestone->number;
-                $newOrOldMilestone->MilestonesLastUpdatedID = $lastUpdatedID;
+                $newOrOldMilestone->State = $milestone->state;
+                $newOrOldMilestone->GitHubID = $milestone->id;
                 $newOrOldMilestone->write();
             }
-
-            //hack to prevent items that aren't in the array from showing
-            $currentSiteConfig->MilestonesLastUpdatedID = $lastUpdatedID;
-            $currentSiteConfig->write();
 
             $form->sessionMessage('Milestones updated', ValidationResult::TYPE_GOOD);
         }

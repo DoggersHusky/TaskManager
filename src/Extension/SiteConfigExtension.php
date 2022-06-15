@@ -18,7 +18,6 @@ class SiteConfigExtension extends DataExtension
         'GithubUser' => 'Varchar(255)',
         'GithubRepo' => 'Varchar(255)',
         'AssignUserToIssue' => 'Boolean',
-        'MilestonesLastUpdatedID' => 'Int',
     ];
 
     /**

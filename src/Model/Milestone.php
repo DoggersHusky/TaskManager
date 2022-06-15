@@ -11,7 +11,8 @@ class Milestone extends DataObject
     //@todo should have a model admin to manage these
     private static $db = [
         'Title' => 'Varchar(255)',
+        'GitHubID' => 'Int',
         'Number' => 'Int',
-        'MilestonesLastUpdatedID' => 'Varchar(255)',
+        'State' => 'Varchar(255)',
     ];
 }

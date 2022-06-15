@@ -109,7 +109,7 @@ trait GitHub
     public function getMilestones(string $authUser, string $repo)
     {
         return $this->sendRequest(
-            "repos/$authUser/$repo/milestones",
+            "repos/$authUser/$repo/milestones?state=all",
             'GET'
         );
     }
