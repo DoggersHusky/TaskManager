@@ -67,7 +67,8 @@ class SiteConfigLeftAndMainExtension extends DataExtension
     }
 
     /**
-     * Undocumented function
+     * update issues in the system. This will only
+     * pull the 50 most recently closed from github
      *
      * @param [type] $data
      * @param [type] $form
