@@ -109,7 +109,7 @@ trait GitHub
     public function getMilestones(string $authUser, string $repo)
     {
         return $this->sendRequest(
-            "repos/$authUser/$repo/milestones?state=all",
+            "repos/$authUser/$repo/milestones?state=all&per_page=50",
             'GET'
         );
     }
@@ -128,7 +128,7 @@ trait GitHub
     public function getClosedGitIssues(string $authUser, string $repo)
     {
         return $this->sendRequest(
-            "repos/$authUser/$repo/issues?state=closed",
+            "repos/$authUser/$repo/issues?state=closed&per_page=50",
             'GET'
         );
     }
