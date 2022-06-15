@@ -97,7 +97,7 @@ class TaskManagerExtension extends DataExtension
 
         // if github integration is enabled push the checkbox
         if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
-            $form->Fields()->push(CheckboxField::create('SubmitToGitHub', 'Create GitHub issue?'));
+            $form->Fields()->push(CheckboxField::create('SubmitToGitHub', 'Create a GitHub issue?'));
 
             // add dropdown if we have milestones
             $milestones = Milestone::get()->filter('MilestonesLastUpdatedID', $currentSiteConfig->MilestonesLastUpdatedID);
