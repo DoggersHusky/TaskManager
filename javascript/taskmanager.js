@@ -72,6 +72,12 @@
                     eleClass = "." + element.className.replace(/\s/g, ".");
                 }
 
+                // if there is an alt
+                if (element.alt) {
+                    eleClass += '[alt="' + element.alt + '"]';
+                    console.log(element.alt);
+                }
+
                 //pass in the selected element
                 selector.push(
                     "" +
