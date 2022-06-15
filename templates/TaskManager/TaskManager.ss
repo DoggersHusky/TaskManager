@@ -24,10 +24,13 @@
                 <% if $AllTasks %>
                     <% loop $AllTasks.Sort(ID DESC) %>
                         <div class="task">
-                            <% if $GitHubIssue %>
-                            <% else %>
-                                <div class="complete"><a href="{$Top.Link}CompleteTask/$ID"></a></div>
-                            <% end_if %>
+                            <div class="complete">
+                                <% if $GitHubIssue %>
+                                    <img src="$resourceURL(buckleshusky/taskmanager: images/github.png)" />
+                                <% else %>
+                                    <a href="{$Top.Link}CompleteTask/$ID"></a>
+                                <% end_if %>
+                            </div>
                             <div class="task-info">
                                 <div><strong>$Title</strong></div>
                                 <div class="date">
@@ -63,6 +66,7 @@
                         <div class="task">
                             <div class="complete">
                                 <% if $GitHubIssue %>
+                                    <img src="$resourceURL(buckleshusky/taskmanager: images/github.png)" />
                                 <% else %>
                                     <a href="{$Top.Link}CompleteTask/$ID"></a>
                                 <% end_if %>
