@@ -22,6 +22,12 @@ add the below to your template file
 $TaskManager
 ```
 
+With github enabled, you can:
+* update Milestones here: `admin/settings/`
+    * this will pull in all open Milestones for the project
+* update Issues here: `admin/settings/`
+    * this will pull in the 50 most recent closed issues and mark complete in task manager
+
 #### Configuration Options
 How to setup Github issue submitting:
 * generate a new personal token [here](https://github.com/settings/tokens)
