@@ -102,7 +102,7 @@ trait GitHub
     }
 
     /**
-     * @todo use to get the milestones for the form.
+     * get the milestones for the form.
      * This should be used to save in the cms
      * https://docs.github.com/en/rest/issues/milestones
      */
@@ -122,7 +122,7 @@ trait GitHub
     }
 
     /**
-     * @todo get a list of git issues.
+     * get a list of closed git issues.
      * https://docs.github.com/en/rest/issues/issues#list-repository-issues
      */
     public function getClosedGitIssues(string $authUser, string $repo)

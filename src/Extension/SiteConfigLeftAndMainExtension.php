@@ -16,6 +16,8 @@ class SiteConfigLeftAndMainExtension extends DataExtension
     /**
      * get the milestones from github and save them
      * this will check to see if they exist in the system first
+     * @todo it would be nice if this was cached for an amount of time
+     * maybe a day and then updated on automatically.
      *
      * @param [type] $data
      * @param [type] $form
@@ -69,6 +71,8 @@ class SiteConfigLeftAndMainExtension extends DataExtension
     /**
      * update issues in the system. This will only
      * pull the 50 most recently closed from github
+     * @todo it would be nice if this was cached for an amount of time
+     * maybe a day and then updated on automatically.
      *
      * @param [type] $data
      * @param [type] $form

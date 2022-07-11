@@ -20,7 +20,6 @@ class Task extends DataObject
         'GitHubLink' => 'Varchar(2083)',
     ];
     
-    //@todo this should have one milestone
     private static $has_one = [
         'Page' => Page::class,
         'Member' => Member::class,
