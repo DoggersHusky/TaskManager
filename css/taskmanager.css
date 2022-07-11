@@ -209,13 +209,14 @@
     background-color: rgb(255, 0, 0) !important;
 }
 
-/* .task-manager-select:after {
-    position: absolute !important;
-    z-index: 99999 !important;
-    display: block !important;
-    content: " " !important;
-    width: 100% !important;
-    height: 100% !important;
-    background-color: rgb(255, 0, 0) !important;
-    top: 0px;
-} */
+.tasks-container .alert {
+    margin-top: 10px;
+    border: 1px solid #dad9d9;
+    font-weight: 600;
+}
+
+
+.tasks-container .alert-good {
+    background-color: #368b39;
+    color: #fff;
+}
