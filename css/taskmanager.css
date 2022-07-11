@@ -151,12 +151,11 @@
 
 .tasks-container .complete {
     width: 30px;
-    padding-right: 15px;
 }
 
 .tasks-container .task-info {
     width: calc(100% - 30px);
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
 .tasks-container .complete a.complete-issue {

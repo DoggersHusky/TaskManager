@@ -26,7 +26,7 @@
                         <div class="task">
                             <div class="complete">
                                 <% if $GitHubIssue %>
-                                    <a href="$GitHubLink" target="_blank"><img src="$resourceURL(buckleshusky/taskmanager: images/github.png)" /></a>
+                                    <a href="$GitHubLink" target="_blank"><img src="$resourceURL(buckleshusky/taskmanager: images/github.png)" width="30" height="30" /></a>
                                 <% else %>
                                     <a href="{$Top.Link}CompleteTask/$ID" class="complete-issue"></a>
                                 <% end_if %>
@@ -66,7 +66,7 @@
                         <div class="task">
                             <div class="complete">
                                 <% if $GitHubIssue %>
-                                    <a href="$GitHubLink" target="_blank"><img src="$resourceURL(buckleshusky/taskmanager: images/github.png)" /></a>
+                                    <a href="$GitHubLink" target="_blank"><img src="$resourceURL(buckleshusky/taskmanager: images/github.png)" width="30" height="30" /></a>
                                 <% else %>
                                     <a href="{$Top.Link}CompleteTask/$ID" class="complete-issue"></a>
                                 <% end_if %>
