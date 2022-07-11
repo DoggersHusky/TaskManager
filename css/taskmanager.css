@@ -156,6 +156,7 @@
 
 .tasks-container .task-info {
     width: calc(100% - 30px);
+    padding-left: 10px;
 }
 
 .tasks-container .complete a.complete-issue {
