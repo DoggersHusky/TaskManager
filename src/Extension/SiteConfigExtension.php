@@ -48,7 +48,7 @@ class SiteConfigExtension extends DataExtension
                 'Root.Github',
                 CheckboxField::create(
                     'AssignUserToIssue',
-                    'Should the user to the issue?'
+                    'Should the GitHub user also be assigned to the issue?'
                 )
             );
             
