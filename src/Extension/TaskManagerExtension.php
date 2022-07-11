@@ -7,6 +7,7 @@ use BucklesHusky\TaskManager\Model\Task;
 use BucklesHusky\TaskManager\Traits\GitHub;
 use SilverStripe\Control\Controller;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Convert;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
@@ -121,7 +122,6 @@ class TaskManagerExtension extends DataExtension
             $currentSiteConfig = SiteConfig::current_site_config();
             
             // make sure it's set to submut to github
-            //@todo the description and title should be escaped
             //@todo the page link should also be included
             if (array_key_exists('SubmitToGitHub', $data)) {
                 // create an issue - if it's enabled
@@ -133,8 +133,8 @@ class TaskManagerExtension extends DataExtension
                     $createIssue = $this->createGitIssue(
                         $currentSiteConfig->GithubUser,
                         $currentSiteConfig->GithubRepo,
-                        $data['Title'],
-                        $data['Description'],
+                        Convert::raw2xml($data['Title']),
+                        Convert::raw2xml($data['Description']),
                         $milestone
                     );
 
