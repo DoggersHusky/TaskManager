@@ -90,7 +90,7 @@ trait GitHub
         $mID = $milestoneID ? '"milestone":' . $milestoneID . ',' : '';
 
         // clean the input to pass to github
-        $issueContent = preg_replace('/[^A-Za-z0-9\-<>\' ]/', '', preg_replace("/\r|\n/", "<br>", $issueContent));
+        $issueContent = preg_replace('/[^A-Za-z0-9\-<>:\/*\' ]/', '', preg_replace("/\r|\n/", "<br>", $issueContent));
         $issueTitle = preg_replace('/[^A-Za-z0-9\-\' ]/', '', $issueTitle);
 
         // @todo the label should be selectable on the form

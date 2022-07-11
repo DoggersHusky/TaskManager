@@ -122,19 +122,28 @@ class TaskManagerExtension extends DataExtension
             $currentSiteConfig = SiteConfig::current_site_config();
             
             // make sure it's set to submut to github
-            //@todo the page link should also be included
             if (array_key_exists('SubmitToGitHub', $data)) {
                 // create an issue - if it's enabled
                 if ($currentSiteConfig->EnableGitIssueCreating && $currentSiteConfig->GithubUser && $currentSiteConfig->GithubRepo) {
                     // get the milestone if selected
                     $milestone = array_key_exists('milestone', $data) ? $data['milestone'] : '';
 
+                    // add page link and details to issue
+                    //@todo the date and selected element should be included
+                    $niceDetails = $this->getNiceDetails(
+                        $data['Description'],
+                        [
+                            'Page Link' => $this->owner->AbsoluteLink(),
+                            'Logged by' => Security::getCurrentUser()->FirstName,
+                        ]
+                    );
+
                     //@todo would be nice to save a reference to the cms, but need a way to clear it when the issue is done.
                     $createIssue = $this->createGitIssue(
                         $currentSiteConfig->GithubUser,
                         $currentSiteConfig->GithubRepo,
                         Convert::raw2xml($data['Title']),
-                        Convert::raw2xml($data['Description']),
+                        $niceDetails,
                         $milestone
                     );
 
@@ -202,5 +211,34 @@ class TaskManagerExtension extends DataExtension
         }
         
         return $this->owner->redirectBack();
+    }
+
+    /**
+     * take the array and convert it to a nice
+     * footer for issues
+     *  
+     * @param string $description
+     * @param array $data
+     * @return string
+     */
+    public function getNiceDetails($description, array $data)
+    {
+        $niceDetails = Convert::raw2xml($description);
+
+        if (count($data) >= 1) {
+            $niceDetails .= "\n";
+            $niceDetails .= "\n";
+            $niceDetails .= '-----------------Issue Details-----------------' . "\n";
+
+            // loop through details
+            foreach ($data as $title => $details) {
+                $niceDetails .= '**' . $title . '**: ' . $details . "\n";
+            }
+
+            $niceDetails .= '-----------------------------------------------' . "\n";
+        }
+        
+        // return details
+        return $niceDetails;
     }
 }
