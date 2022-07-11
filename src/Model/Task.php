@@ -8,6 +8,8 @@ use Page;
 
 class Task extends DataObject
 {
+    private static $table_name = 'Task';
+
     private static $db = [
         'Title' => 'Text',
         'Description' => 'Text',
@@ -21,7 +23,7 @@ class Task extends DataObject
     //@todo this should have one milestone
     private static $has_one = [
         'Page' => Page::class,
-        'Member' => Member::class
+        'Member' => Member::class,
     ];
     
     public function getCMSFields()
